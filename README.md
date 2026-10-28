@@ -47,10 +47,10 @@ python scripts/run_all.py               # results/
 python scripts/make_exhibits.py         # paper/figures/
 python scripts/export_numbers.py        # paper/numbers.tex, site/numbers.json
 python scripts/export_web.py            # assets/data.json
-python scripts/build_site.py            # index.html, README.md, paper/fuel-lockstep.pdf
 python scripts/export_essay_data.py   # figure data and numbers for the essay
 (cd paper && latexmk -pdf main.tex)
 (cd paper/essay && latexmk -pdf essay.tex)
+python scripts/build_site.py            # index.html, README.md, write-up fragment; copies both PDFs
 ```
 
 The processed data in `data/` is committed, so `run_all.py` onward works without downloading anything.
