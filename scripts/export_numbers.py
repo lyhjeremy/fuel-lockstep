@@ -41,7 +41,7 @@ def build():
         "hkEqualTwentyThree": pct(by.loc[2023, "share_days_all_equal"]),
         "hkEqualTwentySix": pct(by.loc[2026, "share_days_all_equal"]),
         "hkUpTwentyThreeFour": int(by.loc[2023, "episodes_up"] + by.loc[2024, "episodes_up"]),
-        "hkDownTwentyThreeFour": int(by.loc[2023, "episodes"] - by.loc[2023, "episodes_up"] + by.loc[2024, "episodes"] - by.loc[2024, "episodes_up"]),
+        "hkDownTwentyThreeFour": (lambda v: "no" if v == 0 else v)(int(by.loc[2023, "episodes"] - by.loc[2023, "episodes_up"] + by.loc[2024, "episodes"] - by.loc[2024, "episodes_up"])),
         "postedFirst": f"{s['hk_margin']['posted_first12']:.2f}",
         "postedLast": f"{s['hk_margin']['posted_last12']:.2f}",
         "importFirst": f"{s['hk_margin']['import_first12']:.2f}",
@@ -88,6 +88,15 @@ def build():
         n["discNetMinLast"] = f"{g.net.min().loc[last]:.2f}"
         n["discPumpFirst"] = f"{g.pump.max().loc[first]:.2f}"
         n["discPumpLast"] = f"{g.pump.max().loc[last]:.2f}"
+    hm = s["hk_margin"]
+    n["postedRise"] = f"{hm['posted_last12'] - hm['posted_first12']:.2f}"
+    n["importRise"] = f"{hm['import_last12'] - hm['import_first12']:.2f}"
+    n["marginRise"] = f"{hm['margin_last12'] - hm['margin_first12']:.2f}"
+    n["marginShareOfRise"] = pct((hm['margin_last12'] - hm['margin_first12']) / (hm['posted_last12'] - hm['posted_first12']))
+    n["discMatch"] = pct(s["discount_crosscheck_match_share"], 1)
+    n["hkPartial"] = s["hk_partial"]["partial_episodes"]
+    n["hkLone"] = s["hk_partial"]["lone_unfollowed"]
+    n["hkLoneReversed"] = s["hk_partial"]["lone_reversed_14d"]
     nm = s.get("hk_net_margin")
     if nm:
         for tag, k in [("First", "first_year"), ("Last", "last_year")]:

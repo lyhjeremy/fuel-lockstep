@@ -1,0 +1,30 @@
+/* Chart styles shared by the explorer (index.html) and the write-up (overview/).
+   Each page maps these tokens to its own palette: --signal, --signal-2, --edge, --panel,
+   --rule, --ink, --ink-2, --font-body, --font-mono. */
+.mono{font-family:var(--font-mono)}
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--s1) var(--s2);margin-top:var(--s3)}
+.chart-title{font:600 .95rem/1.4 var(--font-body);margin:0}
+.seg{display:flex;flex-wrap:wrap;gap:0}
+.seg .btn{font-size:.8rem;padding:4px 10px;margin-left:-1px}
+.seg .btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chart{margin:var(--s2) 0 var(--s3);position:relative}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart svg:focus-visible{outline:2px solid var(--signal);outline-offset:4px}
+.readout{min-height:1.6em;font-size:.82rem;color:var(--ink);margin-top:var(--s1)}
+.pt-stat{font-size:.85rem;margin:var(--s1) 0 0}
+svg text{font-family:var(--font-body);fill:var(--ink-2)}
+svg .lab{fill:var(--ink);font-size:13px}
+svg .axis line,svg .grid line{stroke:var(--rule);stroke-width:1}
+svg .axis text{font-size:12px}
+svg .base{stroke:var(--edge);stroke-width:1}
+svg .s-oxide{stroke:var(--signal);fill:none;stroke-width:2.2}
+svg .s-pine{stroke:var(--signal-2);fill:none;stroke-width:2.2;stroke-dasharray:6 4}
+svg .s-gray{stroke:var(--edge);fill:none;stroke-width:1.2}
+svg .f-oxide{fill:var(--signal)}
+svg .f-pine{fill:var(--signal-2)}
+svg .f-gray{fill:var(--edge)}
+svg .f-band{fill:var(--edge);opacity:.28}
+svg .cursor{stroke:var(--ink);stroke-width:1}
+svg .dot{stroke:var(--panel);stroke-width:2}
+
+@media (max-width:720px){.board-grid{grid-template-columns:1fr}}

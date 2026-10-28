@@ -165,6 +165,24 @@ def main():
 
     s["hk_net_margin"] = hk_net_margin(imp)
 
+    # Cross-check: archived comparison-page pump prices against the open-data panel, same brand and date.
+    disc = pd.read_csv(DATA / "hk_walkin_discounts.csv", parse_dates=["date"])
+    chk = disc[disc.grade == "standard"].merge(hk[hk.grade == "standard"], on=["date", "brand"], how="inner")
+    s["discount_crosscheck_match_share"] = round(float(((chk.pump - chk.price).abs() < 0.001).mean()), 4)
+
+    # Lone moves that nobody followed within the week, and how many the mover reversed within 14 days.
+    ep = pd.read_csv(OUT / "hk_episodes.csv", parse_dates=["start"])
+    ep = ep[ep.grade == "standard"]
+    lone = ep[ep.n_within_window == 1]
+    hk_std_w = hk[hk.grade == "standard"].pivot(index="date", columns="brand", values="price")
+    reversed_ = 0
+    for _, r in lone.iterrows():
+        b = r.leaders
+        before = hk_std_w[b].shift(1).loc[r.start]
+        after = hk_std_w[b].loc[r.start: r.start + pd.Timedelta(days=14)]
+        reversed_ += int((after.iloc[1:].round(4) == round(before, 4)).any())
+    s["hk_partial"] = {"partial_episodes": int((ep.n_within_window < 5).sum()), "lone_unfollowed": len(lone), "lone_reversed_14d": reversed_}
+
     # Weekly pass-through, every market against a gasoline spot price in local currency per litre.
     gc_hkd = to_local_per_litre(eia.gc_spot.dropna(), fx.hkd_per_usd.dropna())
     gc_aud = to_local_per_litre(eia.gc_spot.dropna(), 1 / fx.usd_per_aud.dropna())

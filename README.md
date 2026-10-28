@@ -10,7 +10,7 @@ Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/
 
 - All five brands posted the same Standard price on 87.6% of 2,373 days (30 April 2020 to October 2026).
 - Of 143 price changes, all five brands matched within a week 90% of the time (usually within 2 days) and by the same amount in 83% of those. All five moved on the same day 1.4% of the time. When one brand moved alone it was Shell 37 times, Esso 17 and Caltex 12.
-- 110 changes were increases and 33 were cuts. In 2023 and 2024 there were 17 increases and 0 cuts.
+- 110 changes were increases and 33 were cuts. In 2023 and 2024 there were 17 increases and no cuts.
 - The margin over import cost and the HK$6.06 duty averaged HK$8.76 a litre in the first twelve months and HK$19.03 in the last twelve. On the average price after walk-in discounts it went from HK$6.74 to HK$13.11. From January 2023 to December 2025 the posted price rose from HK$23.09 to HK$28.89 while the import cost fell from HK$5.23 to HK$4.29.
 - Pass-through in the week of a cost change: Hong Kong 30% of a rise against 7% of a fall (p = 0.009); Los Angeles 53% against 23% (p = 0.028); Perth 35% against 3% (p = 0.280, not significant).
 - Perth, for contrast: 419 metropolitan stations, a typical daily spread of 38 cents a litre from cheapest to dearest, and a weekly cycle from 155.9 cents on Tuesday to 187.1 on Wednesday.

@@ -9,6 +9,7 @@
 <meta property="og:description" content="Six years of Hong Kong petrol prices, brand by brand, against costs and against Perth and Los Angeles.">
 <meta property="og:type" content="website">
 <link rel="stylesheet" href="ledger.css">
+<link rel="stylesheet" href="assets/charts.css">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -80,7 +81,7 @@
   <p>Hong Kong imports all its petrol, and the duty has been HK$6.06 a litre since 1998. What is left after the import cost and the duty pays for storage, delivery, stations, land and profit. On the posted price it averaged HK${{marginFirst}} a litre in the first twelve months of this record and HK${{marginLast}} in the last twelve. From January 2023 to December 2025 the posted price went from HK${{spanPostedFrom}} to HK${{spanPostedTo}} while the import cost went from HK${{spanImportFrom}} to HK${{spanImportTo}}.</p>
   <div class="chart-head">
     <p class="chart-title">Monthly posted Standard price, split into import cost, duty and the rest</p>
-    <div class="seg" role="group" aria-label="Price shown">
+    <div class="seg" role="group" aria-label="Price shown" id="margin-seg">
       <button class="btn seg-b" aria-pressed="true" data-mode="posted">Posted price</button>
       <button class="btn seg-b" aria-pressed="false" data-mode="net">After walk-in discount</button>
     </div>
@@ -120,7 +121,7 @@
 <section aria-labelledby="s6">
   <h2 id="s6">What this shows, and what it does not</h2>
   <p>None of this is evidence of an agreement. Identical prices are what a few sellers with the same costs and fully public prices would produce on their own, and Hong Kong's Competition Commission said in 2017 that this kind of parallel pricing reveals very little by itself. US law asks for more than parallel conduct before inferring a conspiracy (<i>Bell Atlantic v. Twombly</i>, 2007), and Hong Kong's First Conduct Rule likewise targets agreements and concerted practices.</p>
-  <p>What the screens add is that the patterns come together and last: a stable leader and followers, increases that outnumber cuts more than three to one, faster pass-through of rises than falls, and a margin that roughly doubled while the cost of the product did not. The data that would separate cost from conduct are station operating costs and rents, the timing of each brand's price notices, and the full discount terms by date. The Consumer Council collects some of these; none are published as data.</p>
+  <p>What the screens add is that the patterns come together and last: a stable leader and followers, increases that outnumber cuts more than three to one, faster pass-through of rises than falls, and a margin that took HK${{marginRise}} of the HK${{postedRise}} rise in the posted price. The data that would separate cost from conduct are station operating costs and rents, the timing of each brand's price notices, and the full discount terms by date. The Consumer Council collects some of these; none are published as data.</p>
   <p class="small">Limits: the open-data record starts in April 2020. Day-level timing depends on when the archive copied the file. The import price is a monthly average. The margin is gross of storage, delivery, station costs and rent.</p>
 </section>
 

@@ -3,6 +3,8 @@
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
   var D, BR, dayCount, hkStart, perthByDate = {}, perthDates = [];
+  var DATA_URL = new URL("data.json", document.currentScript.src).href;
+  function $(id) { return document.getElementById(id); }
 
   function el(tag, attrs, parent, text) {
     var e = document.createElementNS(NS, tag);
@@ -74,7 +76,8 @@
   /* ---------- Day board ---------- */
   var board = { day: 0 };
   function initBoard() {
-    var input = document.getElementById("day");
+    var input = $("day");
+    if (!input) { drawPerth(); return; }
     input.max = dayCount - 1;
     var lastPerth = perthDates[perthDates.length - 1];
     var start = Math.min(dayCount - 1, Math.round((Date.parse(lastPerth) - Date.parse(hkStart)) / 864e5));
@@ -85,26 +88,26 @@
   function drawBoard(day) {
     board.day = day;
     var iso = addDays(hkStart, day);
-    document.getElementById("day-out").textContent = fmtDate(iso);
+    $("day-out").textContent = fmtDate(iso);
     var prices = BR.map(function (b) { return price(b, day); });
     var counts = {}; prices.forEach(function (p) { counts[p] = (counts[p] || 0) + 1; });
     var mode = +Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; })[0];
-    var tb = document.getElementById("hk-board"); tb.innerHTML = "";
+    var tb = $("hk-board"); tb.innerHTML = "";
     BR.forEach(function (b, i) {
       var tr = document.createElement("tr"); if (prices[i] !== mode) tr.className = "off";
       tr.innerHTML = "<td>" + b + "</td><td class=\"num\">" + f2(prices[i]) + "</td>";
       tb.appendChild(tr);
     });
     var off = BR.filter(function (b, i) { return prices[i] !== mode; });
-    document.getElementById("hk-note").textContent = off.length === 0
+    $("hk-note").textContent = off.length === 0
       ? "All five brands posted the same price."
       : off.join(" and ") + (off.length === 1 ? " was" : " were") + " off the common price of HK$" + f2(mode) + " (shown in oxide).";
     drawStrip(iso);
     drawPerth(iso);
   }
   function drawStrip(iso) {
-    var svg = document.getElementById("perth-strip"); clear(svg);
-    var p = perthByDate[iso], note = document.getElementById("perth-note");
+    var svg = $("perth-strip"); if (!svg) return; clear(svg);
+    var p = perthByDate[iso], note = $("perth-note");
     if (!p) { note.textContent = "No Perth data for this day (FuelWatch series runs to " + fmtDate(perthDates[perthDates.length - 1]) + ")."; return; }
     var n = p[1], mn = p[2], p10 = p[3], p25 = p[4], med = p[5], p75 = p[6], p90 = p[7], mx = p[8];
     var lo = Math.floor((mn - 4) / 10) * 10, hi = Math.ceil((mx + 4) / 10) * 10;
@@ -125,13 +128,14 @@
 
   /* ---------- Steps chart ---------- */
   function initSteps() {
+    if (!$("steps")) return;
     var years = []; for (var y = +hkStart.slice(0, 4); y <= +addDays(hkStart, dayCount - 1).slice(0, 4); y++) years.push(String(y));
     var labels = years.concat(["All"]);
-    segButtons(document.getElementById("year-seg"), labels, "2026", drawSteps);
+    segButtons($("year-seg"), labels, "2026", drawSteps);
     drawSteps("2026");
   }
   function drawSteps(which) {
-    var svg = document.getElementById("steps"); clear(svg);
+    var svg = $("steps"); clear(svg);
     var d0, d1;
     if (which === "All") { d0 = 0; d1 = dayCount - 1; }
     else {
@@ -166,7 +170,7 @@
     el("text", { x: R + 8, y: y(price("Shell", d1)) - 6, "class": "lab" }, svg, "Shell");
     el("text", { x: R + 8, y: y(price("Caltex", d1)) + 14, "font-size": 12 }, svg, "other four");
     var cur = el("line", { y1: T, y2: B, "class": "cursor" }, svg);
-    var read = document.getElementById("steps-read");
+    var read = $("steps-read");
     cursorize(svg, d1 - d0 + 1, function (i) { return x(d0 + i); }, function (i) {
       var d = d0 + i; cur.setAttribute("x1", x(d)); cur.setAttribute("x2", x(d));
       read.textContent = fmtDate(addDays(hkStart, d)) + "   " + BR.map(function (b) { return b + " " + f2(price(b, d)); }).join("   ");
@@ -175,7 +179,7 @@
 
   /* ---------- Lag matrix ---------- */
   function drawLags() {
-    var svg = document.getElementById("lags");
+    var svg = $("lags"); if (!svg) return;
     var full = D.episodes.filter(function (e) { return e[4].every(function (v) { return v != null; }); });
     clear(svg);
     var W = size(svg, 330), L = W < 600 ? 104 : 150, R = W - 30, T = 30, B = 250, maxLag = 7;
@@ -200,7 +204,7 @@
 
   /* ---------- Years ---------- */
   function drawYears() {
-    var svg = document.getElementById("years"), rows = D.byYear;
+    var svg = $("years"), rows = D.byYear; if (!svg) return;
     clear(svg);
     var W = size(svg, 250), L = 10, R = W - 10, T = 44, B = 210;
     var mx = Math.max.apply(null, rows.map(function (r) { return r.episodes_up; }));
@@ -224,7 +228,7 @@
   /* ---------- Margin ---------- */
   var marginMode = "posted";
   function drawMargin() {
-    var svg = document.getElementById("margin"); clear(svg);
+    var svg = $("margin"); if (!svg) return; clear(svg);
     var m = D.margin, n = m.length, W = size(svg, 340), L = 40, R = W - 96, T = 14, B = 300;
     var hi = Math.max.apply(null, m.map(function (r) { return r[1]; })) * 1.05;
     var x = lin(0, n - 1, L, R), y = lin(0, hi, B, T);
@@ -255,7 +259,7 @@
       });
       el("text", { x: L + 8, y: T + 12, "font-size": 12 }, svg, "dots: average price after walk-in discount, on archived days");
     }
-    var cur = el("line", { y1: T, y2: B, "class": "cursor" }, svg), read = document.getElementById("margin-read");
+    var cur = el("line", { y1: T, y2: B, "class": "cursor" }, svg), read = $("margin-read");
     if (!net) {
       cursorize(svg, n, function (i) { return x(i); }, function (i) {
         var r = m[i]; cur.setAttribute("x1", x(i)); cur.setAttribute("x2", x(i));
@@ -267,14 +271,14 @@
         read.textContent = fmtDate(r[0]) + "   posted " + f2(r[1]) + "   after walk-in discount " + f2(r[2]) + "   import " + f2(r[4]) + "   margin on that price " + f2(r[2] - 6.06 - r[4]);
       });
     }
-    document.getElementById("margin-cap").textContent = net
+    if ($("margin-cap")) $("margin-cap").textContent = net
       ? "Average net price across the five brands on the 119 days the Consumer Council comparison page was archived (Internet Archive). Card and loyalty discounts are not included."
       : "Import cost: Census and Statistics Department, monthly unit value of unleaded petrol imports. Duty: HK$6.06 a litre.";
   }
   function initMargin() {
-    document.querySelectorAll("#s3 ~ .chart-head .seg-b, section[aria-labelledby=s3] .seg-b").forEach(function (b) {
+    document.querySelectorAll("#margin-seg .seg-b").forEach(function (b) {
       b.addEventListener("click", function () {
-        document.querySelectorAll("section[aria-labelledby=s3] .seg-b").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
+        document.querySelectorAll("#margin-seg .seg-b").forEach(function (x) { x.setAttribute("aria-pressed", "false"); });
         b.setAttribute("aria-pressed", "true"); marginMode = b.getAttribute("data-mode"); drawMargin();
       });
     });
@@ -283,7 +287,7 @@
 
   /* ---------- Pass-through ---------- */
   function drawPT(mk) {
-    var svg = document.getElementById("pt"); clear(svg);
+    var svg = $("pt"); if (!svg) return; clear(svg);
     var s = D.passthrough[mk], n = s.rise.length, W = size(svg, 320), L = 48, R = W - 80, T = 14, B = 280;
     var all = s.rise.concat(s.fall), hi = Math.max(1.2, Math.max.apply(null, all) + 0.1), lo = Math.min(0, Math.min.apply(null, all));
     var x = lin(0, n - 1, L, R), y = lin(lo, hi, B, T);
@@ -297,13 +301,13 @@
     el("text", { x: R + 8, y: y(s.rise[n - 1]) + dy[0] + 4, "class": "lab" }, svg, "cost rise");
     el("text", { x: R + 8, y: y(s.fall[n - 1]) + dy[1] + 4, "class": "lab" }, svg, "cost fall");
     var ps = D.passthroughSummary[mk];
-    document.getElementById("pt-stat").textContent = mk + ": week 0, " + Math.round(ps.week0_rise * 100) + "% of a rise against " + Math.round(ps.week0_fall * 100) +
+    if ($("pt-stat")) $("pt-stat").textContent = mk + ": week 0, " + Math.round(ps.week0_rise * 100) + "% of a rise against " + Math.round(ps.week0_fall * 100) +
       "% of a fall. Test that rises and falls pass through equally over weeks 0 and 1: p = " + ps.asym_weeks01_p.toFixed(3) + " (" + ps.n_weeks + " weeks).";
   }
 
   /* ---------- Perth band ---------- */
   function drawPerth(endIso) {
-    var svg = document.getElementById("perth"); clear(svg);
+    var svg = $("perth"); if (!svg) return; clear(svg);
     var end = perthDates.indexOf(endIso); if (end < 0) end = perthDates.length - 1;
     var start = Math.max(0, end - 119), rows = D.perth.slice(start, end + 1), n = rows.length;
     var W = size(svg, 320), L = 40, R = W - 70, T = 14, B = 280;
@@ -318,7 +322,7 @@
     el("text", { x: R + 8, y: y(rows[n - 1][5]) + 4, "class": "lab" }, svg, "median");
     el("text", { x: R + 8, y: y(rows[n - 1][7]) + 4, "font-size": 12 }, svg, "90th pct");
     el("text", { x: R + 8, y: y(rows[n - 1][3]) + 4, "font-size": 12 }, svg, "10th pct");
-    var cur = el("line", { y1: T, y2: B, "class": "cursor" }, svg), read = document.getElementById("perth-read");
+    var cur = el("line", { y1: T, y2: B, "class": "cursor" }, svg), read = $("perth-read");
     cursorize(svg, n, function (i) { return x(i); }, function (i) {
       var r = rows[i]; cur.setAttribute("x1", x(i)); cur.setAttribute("x2", x(i));
       var wd = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][new Date(r[0] + "T00:00:00Z").getUTCDay()];
@@ -326,20 +330,22 @@
     });
   }
 
-  fetch("assets/data.json").then(function (r) { return r.json(); }).then(function (data) {
+  fetch(DATA_URL).then(function (r) { return r.json(); }).then(function (data) {
     D = data; BR = D.brands; dayCount = D.hkDays; hkStart = D.hkStart;
     D.perth.forEach(function (r) { perthByDate[r[0]] = r; perthDates.push(r[0]); });
     initBoard(); initSteps(); drawLags(); drawYears(); initMargin();
     var mk = Object.keys(D.passthrough);
     var curPT = mk[0];
-    segButtons(document.getElementById("pt-seg"), mk, mk[0], function (m) { curPT = m; drawPT(m); }); drawPT(mk[0]);
+    if ($("pt-seg")) segButtons($("pt-seg"), mk, mk[0], function (m) { curPT = m; drawPT(m); });
+    drawPT(mk[0]);
     var lastW = window.innerWidth, t;
     window.addEventListener("resize", function () {
       clearTimeout(t);
       t = setTimeout(function () {
         if (Math.abs(window.innerWidth - lastW) < 20) return;
         lastW = window.innerWidth;
-        drawBoard(board.day); drawLags(); drawYears(); drawMargin(); drawPT(curPT);
+        if ($("day")) drawBoard(board.day); else drawPerth();
+        drawLags(); drawYears(); drawMargin(); drawPT(curPT);
         var on = document.querySelector("#year-seg [aria-pressed=true]"); drawSteps(on ? on.textContent : "2026");
       }, 150);
     });

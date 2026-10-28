@@ -1,6 +1,6 @@
 # Handoff
 
-State on 2026-10-28: data, analysis, paper (11 pages), interactive page and write-up all built and checked locally (designcheck PASS, check.py clean, no overflow at 390px, no console errors).
+State on 2026-10-28: data, analysis, paper, explorer (index.html) and write-up (overview/) built and checked. Both pages draw their charts from assets/app.js and assets/data.json; the write-up maps the chart tokens in its fragment extra_css. designcheck PASS, check.py clean, no overflow at 390px, no console errors.
 
 Refresh with new data: rerun the fetchers, then `run_all.py`, `make_exhibits.py`, `export_numbers.py`, `export_web.py`, `build_site.py`, rebuild the overview fragment and recompile the paper.
 

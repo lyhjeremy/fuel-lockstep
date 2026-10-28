@@ -94,7 +94,7 @@ World gasoline cost & EIA daily US Gulf Coast conventional gasoline spot; FRED e
 \end{tabularx}
 \end{table}
 
-\textbf{Hong Kong.} The Consumer Council publishes each brand's posted pump price as a small file on the government's open-data portal. The portal keeps a copy whenever the file changes, which gives a record of every change since 30 April 2020. A day's price is the last snapshot taken that day; snapshots are usually harvested between 09:00 and 11:00, so a one-day gap between two brands can be an artifact of harvest timing. Both of Hong Kong's petrol grades are 98 RON \parencite{compcomm2017}, the duty on petrol has been \hk 6.06 a litre since 1998 \parencite{ccnote}, and the analysis uses the Standard grade throughout. Walk-in discounts are not in the open-data file; they come from the Internet Archive's captures of the Council's comparison page.
+\textbf{Hong Kong.} The Consumer Council publishes each brand's posted pump price as a small file on the government's open-data portal. The portal keeps a copy whenever the file changes, which gives a record of every change since 30 April 2020. A day's price is the last snapshot taken that day; snapshots are usually harvested between 09:00 and 11:00, so a one-day gap between two brands can be an artifact of harvest timing. Both of Hong Kong's petrol grades are 98 RON \parencite{compcomm2017}, the duty on petrol has been \hk 6.06 a litre since 1998 \parencite{ccnote}, and the analysis uses the Standard grade throughout. Walk-in discounts are not in the open-data file; they come from the Internet Archive's captures of the Council's comparison page. On those days the page's pump prices match the open-data file for \discMatch\% of brand-days, which checks both sources.
 
 \textbf{Costs.} Hong Kong has no refinery and imports all its petrol. The monthly import unit value from the Census and Statistics Department is the closest public measure of what the retailers pay for the product. For weekly analysis, the US Gulf Coast spot price of gasoline, converted to local currency per litre, stands in for movements in world gasoline prices. It is a regular grade and not Hong Kong's 98 RON, so its level is not Hong Kong's cost; only its changes are used.
 
@@ -113,11 +113,11 @@ On \hkShareEqual\% of days from \hkStart{} to October 2026, all five brands post
 \label{fig:steps}
 \end{figure}
 
-Alignment was loosest in 2026 (\hkEqualTwentySix\% of days), the year world gasoline prices swung most and the brands changed price most often, and tightest in 2023 (\hkEqualTwentyThree\%). The gaps are the days it takes the followers to catch up, so more changes mean more of them.
+Alignment was loosest in 2026 (\hkEqualTwentySix\% of days), the year world gasoline prices swung most, and tightest in 2023 (\hkEqualTwentyThree\%). The gaps are the days it takes the followers to catch up.
 
 \subsection{Leaders and followers}
 
-A change episode starts with the first brand to change price and collects each other brand's first change in the same direction within seven days. There were \hkEpisodes{} episodes for Standard petrol. All five brands moved within the week in \hkShareFullWeek\% of them and by exactly the same amount in \hkShareSameSize\% of those. All five moved on the same day in \hkShareSameDay\%.
+A change episode starts with the first brand to change price and collects each other brand's first change in the same direction within seven days. There were \hkEpisodes{} episodes for Standard petrol. All five brands moved within the week in \hkShareFullWeek\% of them and by exactly the same amount in \hkShareSameSize\% of those. All five moved on the same day in \hkShareSameDay\%. Of the \hkPartial{} episodes that not every brand joined, \hkLone{} were a single brand moving alone; in \hkLoneReversed{} of those the brand went back to its old price within two weeks.
 
 \begin{figure}[H]
 \centering
@@ -136,7 +136,7 @@ Of the \hkEpisodes{} episodes, \hkEpisodesUp{} were increases and \hkEpisodesDow
 
 \subsection{The margin over cost}
 
-Exhibit~\ref{fig:decomp} splits the monthly posted Standard price into the import cost of the petrol, the fixed duty, and what is left: the margin that pays for storage, distribution, stations, land and profit. In the first twelve months of the sample the posted price averaged \hk\postedFirst{} and the margin \hk\marginFirst. In the twelve months to \marginEnd{} the posted price averaged \hk\postedLast{} and the margin \hk\marginLast. The import cost rose from \hk\importFirst{} to \hk\importLast{} over the same span.
+Exhibit~\ref{fig:decomp} splits the monthly posted Standard price into the import cost of the petrol, the fixed duty, and what is left: the margin that pays for storage, distribution, stations, land and profit. In the first twelve months of the sample the posted price averaged \hk\postedFirst{} and the margin \hk\marginFirst. In the twelve months to \marginEnd{} the posted price averaged \hk\postedLast{} and the margin \hk\marginLast. The import cost rose from \hk\importFirst{} to \hk\importLast{} over the same span. Of the \hk\postedRise{} rise in the posted price, \hk\marginRise{} (\marginShareOfRise\%) is margin and \hk\importRise{} is the cost of the petrol.
 
 \begin{figure}[H]
 \centering

@@ -2,47 +2,53 @@
   "out": "/Users/jeremylee/My Drive/6. Data Projects/Project 37 Fuel Lockstep/fuel-lockstep/overview/index.html",
   "url": "https://lyhjeremy.github.io/fuel-lockstep/overview/",
   "title": "Lockstep at the pump: six years of parallel petrol pricing in Hong Kong",
-  "description": "Hong Kong's five petrol brands posted the same Standard price on {{hkShareEqual}}% of days from April 2020 to October 2026. Prices rose {{hkEpisodesUp}} times and fell {{hkEpisodesDown}}, and the margin over import cost and duty roughly doubled. Perth and Los Angeles for comparison.",
+  "description": "Hong Kong's five petrol brands posted the same Standard price on {{hkShareEqual}}% of days from April 2020 to October 2026. Prices rose {{hkEpisodesUp}} times and fell {{hkEpisodesDown}}, and HK${{marginRise}} of the HK${{postedRise}} rise in the posted price went to margin. Perth and Los Angeles for comparison.",
   "og_title": "Lockstep at the pump",
-  "og_description": "Six years of Hong Kong petrol prices, brand by brand, screened against costs and against Perth and Los Angeles.",
-  "extra_css": "\n  .board-note { font-family: var(--mono); font-size: 13px; color: var(--ink2); }\n  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }\n  @media (max-width: 720px) { .two { grid-template-columns: 1fr; } }\n  .screens td:first-child { font-family: var(--sans); font-weight: 600; }\n"
+  "og_description": "Six years of Hong Kong petrol prices, brand by brand, screened against import costs and against Perth and Los Angeles.",
+  "extra_css": "\n  :root { --signal: var(--accent); --signal-2: var(--accent2); --edge: var(--muted); --panel: var(--card); --ink-2: var(--muted); --font-body: var(--sans); --font-mono: var(--mono); }\n  .section { padding: 64px 0 0; }\n  .section > p { max-width: 62ch; color: var(--ink2); }\n  .section h2 { max-width: 22ch; }\n  .exhibit { margin: 34px 0 8px; padding: 22px 22px 16px; background: var(--card); border: 1px solid var(--rule); }\n  .exhibit .chart { margin: 10px 0 0; }\n  .exhibit figcaption { margin-top: 10px; font-family: var(--sans); font-size: 13.5px; color: var(--muted); line-height: 1.5; }\n  .ex-label { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin: 0 0 4px; }\n  .exhibit .chart-title { font-family: var(--sans); font-weight: 600; font-size: 17px; line-height: 1.35; margin: 0; color: var(--ink); max-width: 46ch; }\n  .exhibit .chart-head { margin-top: 0; align-items: flex-start; }\n  .seg .btn { background: var(--paper); color: var(--ink); border: 1px solid var(--muted); font-family: var(--sans); cursor: pointer; }\n  .seg .btn[aria-pressed=\"true\"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }\n  .timeline { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 15px; margin-top: 12px; }\n  .timeline th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 8px 12px 8px 0; border-bottom: 2px solid var(--ink); font-weight: 600; }\n  .timeline td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); vertical-align: top; color: var(--ink2); }\n  .timeline .num { font-family: var(--mono); text-align: right; white-space: nowrap; }\n  .timeline td.num { color: var(--ink); }\n  .timeline tr.lead td { color: var(--ink); font-weight: 600; }\n  .timeline tr.lead td:first-child { border-left: 3px solid var(--accent); padding-left: 9px; }\n  .markets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 30px; }\n  .market { background: var(--card); padding: 20px 18px; }\n  .market h3 { font-family: var(--sans); font-size: 17px; margin: 0 0 4px; }\n  .market dl { margin: 0; }\n  .market dt { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }\n  .market dd { margin: 2px 0 0; font-family: var(--sans); font-size: 15px; color: var(--ink); }\n  .market dd b { font-family: var(--mono); font-weight: 400; font-size: 17px; }\n  @media (max-width: 760px) { .markets { grid-template-columns: 1fr; } .exhibit { padding: 16px 12px 12px; } }\n  .pt-table { width: 100%; border-collapse: collapse; font-family: var(--sans); font-size: 15px; }\n  .pt-table th, .pt-table td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--rule); }\n  .pt-table th { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 2px solid var(--ink); }\n  .pt-table th:first-child, .pt-table td:first-child { text-align: left; }\n  .pt-table td { font-family: var(--mono); }\n  .pt-table td:first-child { font-family: var(--sans); font-weight: 600; }\n  .sources dt { font-family: var(--sans); font-weight: 600; font-size: 16px; color: var(--ink); margin-top: 16px; }\n  .sources dd { margin: 3px 0 0; font-size: 16px; color: var(--ink2); max-width: 62ch; }\n  .endnote { font-family: var(--sans); font-size: 14px; color: var(--muted); }\n  @media (min-width: 760px) { .claims { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; } .claim:nth-child(3) { border-top: 2px solid var(--ink); } }\n"
 } -->
+<link rel="stylesheet" href="../assets/charts.css">
 
 <div class="wrap">
   <header class="masthead">
     <div class="logo"><span class="dot" aria-hidden="true"></span>Fuel Lockstep</div>
-    <div class="tagline">Hong Kong petrol prices, 2020 to 2026, against Los Angeles and Perth</div>
+    <div class="tagline">Hong Kong petrol prices, 2020 to 2026, against Perth and Los Angeles</div>
   </header>
 
   <section class="hero">
-    <p class="kicker">{{hkDays}} days, five brands, {{hkEpisodes}} price changes</p>
-    <h1>One brand moves, four follow, and the price mostly goes up</h1>
+    <p class="kicker">Hong Kong petrol, {{hkStart}} to October 2026</p>
+    <h1>Five brands, one price, and a margin that kept growing</h1>
     <p class="hero-sub">
       Hong Kong's five petrol brands posted the same Standard pump price on
-      {{hkShareEqual}}% of days from {{hkStart}} to October 2026. Of
-      {{hkEpisodes}} changes, {{hkEpisodesUp}} were increases. Over the same
-      years the margin left after import cost and duty roughly doubled.
+      {{hkShareEqual}}% of the last {{hkDays}} days. When one changes its price,
+      the others follow within about {{hkMedianLag}} days. Increases outnumber cuts
+      {{hkEpisodesUp}} to {{hkEpisodesDown}}, and of the HK${{postedRise}} a litre
+      that the posted price rose between the first and last year of the record,
+      HK${{marginRise}} went to margin. This write-up runs the standard screens
+      for coordinated pricing on that record, with Perth and Los Angeles beside it.
     </p>
     <div class="cta-row">
       <a class="btn btn-primary" href="../">Explore the data</a>
       <a class="textlink" href="../paper/fuel-lockstep.pdf">Read the paper (PDF)</a>
-      <a class="textlink" href="https://github.com/lyhjeremy/fuel-lockstep">Code and data on GitHub</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/fuel-lockstep">Code and data</a>
     </div>
     <div class="claims">
       <div class="claim">
         <div class="n">{{hkShareFullWeek}}%</div>
-        <p>of price changes were matched by all five brands within a week, usually
-           within {{hkMedianLag}} days. All five moved on the same day in {{hkShareSameDay}}%.</p>
+        <p>of {{hkEpisodes}} price changes were matched by all five brands within a
+           week, usually within {{hkMedianLag}} days. All five moved on the same day
+           in {{hkShareSameDay}}%.</p>
       </div>
       <div class="claim">
         <div class="n">{{hkEpisodesUp}} to {{hkEpisodesDown}}</div>
         <p>increases to cuts. In 2023 and 2024 there were {{hkUpTwentyThreeFour}}
-           increases and no cuts while import costs fell.</p>
+           increases and {{hkDownTwentyThreeFour}} cuts, while import costs fell.</p>
       </div>
       <div class="claim">
-        <div class="n">HK${{marginFirst}} to {{marginLast}}</div>
-        <p>margin per litre over import cost and duty, first year against last.
-           After walk-in discounts: HK${{netMarginFirst}} to {{netMarginLast}}.</p>
+        <div class="n">HK${{marginRise}}</div>
+        <p>of the HK${{postedRise}} rise in the posted price went to margin over
+           import cost and duty ({{marginShareOfRise}}%). The petrol itself
+           accounts for HK${{importRise}}.</p>
       </div>
     </div>
   </section>
@@ -50,161 +56,330 @@
 
 <div class="wrap">
 
-  <section>
+  <section class="section" aria-labelledby="q">
     <p class="eyebrow">The question</p>
-    <h2>Same price everywhere: competition or coordination?</h2>
+    <h2 id="q">Identical prices can mean two different things</h2>
     <p>
-      In Los Angeles or Perth, stations a few hundred meters apart often post
+      In Perth or Los Angeles, stations a few hundred meters apart often post
       prices tens of cents a litre apart. In Hong Kong the five brands that run
-      nearly every station post one price for days or weeks, then change it
-      within a day or two of each other. A small market with the same import
-      costs and fully public prices can produce that with no agreement at all.
-      So can coordination. Competition law treats the two differently, and the
-      tools for telling them apart are screens: tests of whether prices behave
-      the way costs and independent decisions would make them behave.
+      nearly every station post one price for days or weeks at a time. A small
+      market where every seller pays the same import cost and every price is
+      public can settle there with no agreement at all, because any cut would be
+      matched at once. Coordination produces the same picture. Competition law
+      treats the two very differently, and the tools for telling them apart are
+      screens: tests of whether prices move the way costs and independent
+      decisions would move them.
     </p>
+    <blockquote class="pull">
+      <p>Parallel pricing, in the Commission's words, &ldquo;reveals very little
+         about whether firms are competing or coordinating.&rdquo;</p>
+      <p class="who">Competition Commission, Hong Kong, auto-fuel market study, 2017</p>
+    </blockquote>
     <p>
-      This project runs those screens on every posted price change since April
-      2020 and puts two markets beside Hong Kong: Los Angeles, with many sellers
-      and weekly federal price data, and Perth, where every station's price is
-      public a day ahead.
+      So the identical prices are the starting observation, and the screens look
+      at what comes with them: who moves first, which way prices move, what
+      happens to the margin over cost, and how fast cost changes reach the pump.
+      Each screen is also run on a market with many sellers, to see what the
+      same test looks like there.
     </p>
   </section>
 
-  <section>
-    <p class="eyebrow">Data</p>
-    <h2>Six years of snapshots, rebuilt</h2>
-    <p>
-      The Consumer Council publishes each brand's posted price as a small file on
-      data.gov.hk, and the portal keeps a copy every time the file changes: 1,210
-      versions since 30 April 2020. Rebuilt day by day, they give each brand's
-      price on every day. Walk-in discounts are not in that file, so they come
-      from {{discDays}} Internet Archive captures of the Council's comparison page;
-      on those days its pump prices match the open-data file for 97.5% of rows.
-      Hong Kong's import cost is the Census and Statistics Department's monthly
-      unit value of unleaded petrol imports. Perth is FuelWatch's daily price
-      for every metropolitan station; Los Angeles is the EIA's weekly retail and
-      daily spot series.
-    </p>
-  </section>
-
-  <section>
+  <section class="section" aria-labelledby="f1">
     <p class="eyebrow">Finding 1</p>
-    <h2>A fixed order of leaders and followers</h2>
-    <figure>
-      <img src="../paper/figures/ex2_hk_steps.png" alt="Step chart of the five brands' posted Standard prices from February to May 2026. Shell's line moves first at most steps and the other four follow within a few days." width="1300" height="560">
-      <figcaption>Posted Standard price by brand, February to May 2026. Shell in oxide.</figcaption>
-    </figure>
+    <h2 id="f1">One brand moves, the other four follow</h2>
     <p>
-      An episode starts with the first brand to change price and collects every
-      other brand's first change in the same direction within seven days. In
-      {{hkShareFullWeek}}% of the {{hkEpisodes}} episodes all five moved, by the same
-      amount in {{hkShareSameSize}}% of those. When one brand moved alone it was
-      Shell {{hkLeadShell}} times, Esso {{hkLeadEsso}} and Caltex {{hkLeadCaltex}};
-      PetroChina and Sinopec almost never went first. The premium grade shows the
-      same habit over a longer span: Shell raised its premium surcharge from
-      HK$1.19 to HK$1.60 in January 2024, the others matched it in January 2025,
-      Shell then went to HK$1.80, and all four matched within a week.
+      A change episode starts with the first brand to change its price and
+      collects every other brand's first change in the same direction within
+      seven days. Of {{hkEpisodes}} episodes since April 2020, all five brands
+      moved in {{hkShareFullWeek}}%, and by the same amount in {{hkShareSameSize}}%
+      of those. They moved on the same day in only {{hkShareSameDay}}%. One brand
+      goes first and the rest catch up over the next day or two.
     </p>
+
+    <figure class="exhibit">
+      <div class="chart-head">
+        <div>
+          <p class="ex-label">Exhibit 1</p>
+          <p class="chart-title">Shell's line moves first at most steps; the other four catch up within days</p>
+        </div>
+        <div class="seg" role="group" aria-label="Year" id="year-seg"></div>
+      </div>
+      <div class="chart">
+        <svg id="steps" viewBox="0 0 900 340" role="img" aria-labelledby="steps-t" tabindex="0"><title id="steps-t">Posted Standard price by brand, daily. Use the left and right arrow keys to move the readout.</title></svg>
+        <div class="readout mono" id="steps-read" aria-live="polite"></div>
+      </div>
+      <figcaption>Posted Standard price by brand, HK$ per litre. Shell in the accent color, the other four in gray. Pick a year; hover or use the arrow keys for each brand's price on a day. Source: Consumer Council, via the data.gov.hk archive.</figcaption>
+    </figure>
+
+    <p>
+      The order is stable. When one brand moved alone, it was Shell
+      {{hkLeadShell}} times, Esso {{hkLeadEsso}} and Caltex {{hkLeadCaltex}}.
+      PetroChina and Sinopec, the two brands owned by Chinese state oil
+      companies, almost never go first; they usually match one or two days later.
+    </p>
+
+    <figure class="exhibit">
+      <p class="ex-label">Exhibit 2</p>
+      <p class="chart-title">Caltex, Shell and Esso tend to move on day 0; PetroChina and Sinopec on days 1 and 2</p>
+      <div class="chart">
+        <svg id="lags" viewBox="0 0 900 330" role="img" aria-labelledby="lags-t"><title id="lags-t">Count of complete change episodes by brand and by days after the first move</title></svg>
+      </div>
+      <figcaption>Each circle is the number of complete episodes in which a brand matched the first move that many days later. Day 0 means the brand was among the first to move. Hover a circle for its count.</figcaption>
+    </figure>
+
+    <p>
+      Not every move sticks. {{hkPartial}} episodes were not joined by every
+      brand, and in {{hkLone}} of them a single brand changed its price and
+      nobody followed within the week. {{hkLoneReversed}} of those lone moves were
+      taken back within two weeks: the brand returned to the price everyone else
+      was still posting.
+    </p>
+    <p>
+      The premium grade shows the same pattern over a longer span. Premium sells
+      at a fixed surcharge over Standard, and in January 2024 Shell widened its
+      surcharge while the others held theirs for a full year.
+    </p>
+
+    <figure class="exhibit">
+      <p class="ex-label">Exhibit 3</p>
+      <p class="chart-title">Shell raised the premium surcharge, waited a year, then raised it again three days after the others caught up</p>
+      <div class="tablewrap">
+        <table class="timeline">
+          <thead><tr><th>Date</th><th>Who moved</th><th class="num">Surcharge over Standard</th></tr></thead>
+          <tbody>
+            <tr><td>Before 2024</td><td>All five brands</td><td class="num">HK$1.19</td></tr>
+            <tr class="lead"><td>8 Jan 2024</td><td>Shell</td><td class="num">HK$1.60</td></tr>
+            <tr><td>25 to 31 Dec 2024</td><td>Sinopec, Esso, PetroChina</td><td class="num">HK$1.39</td></tr>
+            <tr><td>7 to 11 Jan 2025</td><td>Esso, Sinopec, PetroChina, Caltex</td><td class="num">HK$1.60</td></tr>
+            <tr class="lead"><td>14 Jan 2025</td><td>Shell</td><td class="num">HK$1.80</td></tr>
+            <tr><td>15 to 21 Jan 2025</td><td>Esso, PetroChina, Sinopec, Caltex</td><td class="num">HK$1.80</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <figcaption>Premium posted price minus Standard posted price, by brand, from the daily panel. One-snapshot reporting faults in the premium feed are excluded (data decision D3 in the repository).</figcaption>
+    </figure>
   </section>
 
-  <section>
+  <section class="section" aria-labelledby="f2">
     <p class="eyebrow">Finding 2</p>
-    <h2>The margin doubled while the product did not</h2>
-    <figure>
-      <img src="../paper/figures/ex1_hk_decomposition.png" alt="Stacked area chart of the monthly posted Standard price split into import cost, the HK$6.06 duty and the remaining margin, April 2020 to August 2026. The margin layer grows from about 9 to about 20 HK dollars a litre." width="1300" height="600">
-      <figcaption>Monthly posted Standard price split into import cost, duty and the rest.</figcaption>
-    </figure>
+    <h2 id="f2">Up {{hkEpisodesUp}} times, down {{hkEpisodesDown}}</h2>
     <p>
-      The posted price averaged HK${{postedFirst}} a litre in the first twelve
-      months and HK${{postedLast}} in the last twelve; the import cost went from
-      HK${{importFirst}} to HK${{importLast}}. From January 2023 to December 2025
-      the posted price rose from HK${{spanPostedFrom}} to HK${{spanPostedTo}} while
-      the import cost fell from HK${{spanImportFrom}} to HK${{spanImportTo}}.
-      Walk-in discounts grew too, from an average of HK${{discMeanFirst}} to
-      HK${{discMeanLast}}, but the margin on the price after that discount still
-      went from HK${{netMarginFirst}} to HK${{netMarginLast}}.
+      The median increase was HK${{hkSizeUp}} a litre and the median cut
+      HK${{hkSizeDown}}. The import cost of petrol did rise over the whole
+      period, so more increases than cuts is no surprise by itself. The test is
+      the years when that cost fell. In 2023 and 2024 the posted price rose
+      {{hkUpTwentyThreeFour}} times and was never cut once.
     </p>
-    <figure>
-      <img src="../paper/figures/ex4_hk_discounts.png" alt="Line chart of the posted Standard price and the cheapest net price after walk-in discounts on archived days from November 2020 to July 2026. Both rise; the gap between them widens." width="1300" height="600">
-      <figcaption>Posted price and the range of net prices after each brand's walk-in discount.</figcaption>
+    <figure class="exhibit">
+      <p class="ex-label">Exhibit 4</p>
+      <p class="chart-title">Increases outnumber cuts in every year; in 2023 and 2024 there were no cuts at all</p>
+      <div class="chart">
+        <svg id="years" viewBox="0 0 900 250" role="img" aria-labelledby="years-t"><title id="years-t">Price increases and cuts for Standard petrol by year</title></svg>
+      </div>
+      <figcaption>Change episodes for Standard petrol by year. 2020 starts on 30 April and 2026 ends on 28 October.</figcaption>
     </figure>
   </section>
 
-  <section>
+  <section class="section" aria-labelledby="f3">
     <p class="eyebrow">Finding 3</p>
-    <h2>Rockets and feathers, three ways</h2>
-    <figure>
-      <img src="../paper/figures/ex5_passthrough.png" alt="Three small charts of the share of a cost change passed to retail prices over twelve weeks. Hong Kong passes rises through faster and further than falls; Los Angeles shows a smaller gap that closes within weeks; Perth shows no lasting gap." width="1300" height="480">
-      <figcaption>Response to a permanent change in gasoline cost. Error-correction model on weekly data.</figcaption>
-    </figure>
-    <div class="tablewrap"><table class="screens">
-      <thead><tr><th>Market</th><th>Rise, week 0</th><th>Fall, week 0</th><th>Rise, week 4</th><th>Fall, week 4</th><th>Equal? (p)</th></tr></thead>
-      <tbody>
-        <tr><td>Hong Kong</td><td>{{hkRiseZero}}%</td><td>{{hkFallZero}}%</td><td>{{hkRiseFour}}%</td><td>{{hkFallFour}}%</td><td>{{hkAsymP}}</td></tr>
-        <tr><td>Los Angeles</td><td>{{laRiseZero}}%</td><td>{{laFallZero}}%</td><td>{{laRiseFour}}%</td><td>{{laFallFour}}%</td><td>{{laAsymP}}</td></tr>
-        <tr><td>Perth</td><td>{{perthRiseZero}}%</td><td>{{perthFallZero}}%</td><td>{{perthRiseFour}}%</td><td>{{perthFallFour}}%</td><td>{{perthAsymP}}</td></tr>
-      </tbody>
-    </table></div>
+    <h2 id="f3">Where the extra HK${{postedRise}} a litre went</h2>
     <p>
-      The asymmetry in Hong Kong and Los Angeles holds with six and eight lags;
-      Perth's is not significant in any version. Part of Hong Kong's slowness is
-      mechanical, since its posted price changed in only {{hkUnchangedWeeks}}% of
-      weeks. The lean toward rises is the part that is not.
+      Hong Kong has no refinery and imports all of its petrol, and the duty has
+      been HK$6.06 a litre since 1998. Whatever is left of the pump price after
+      the import cost and the duty pays for storage, delivery, stations, land
+      and profit. The posted price averaged HK${{postedFirst}} in the first twelve
+      months of the record and HK${{postedLast}} in the last twelve. The import
+      cost rose by HK${{importRise}} over that span and the margin by
+      HK${{marginRise}}. From January 2023 to December 2025 the posted price went
+      from HK${{spanPostedFrom}} to HK${{spanPostedTo}} while the import cost went
+      from HK${{spanImportFrom}} to HK${{spanImportTo}}.
+    </p>
+    <figure class="exhibit">
+      <div class="chart-head">
+        <div>
+          <p class="ex-label">Exhibit 5</p>
+          <p class="chart-title">Most of the rise in the pump price since 2020 is margin, before and after discounts</p>
+        </div>
+        <div class="seg" role="group" aria-label="Price shown" id="margin-seg">
+          <button class="btn seg-b" aria-pressed="true" data-mode="posted">Posted price</button>
+          <button class="btn seg-b" aria-pressed="false" data-mode="net">After walk-in discount</button>
+        </div>
+      </div>
+      <div class="chart">
+        <svg id="margin" viewBox="0 0 900 340" role="img" aria-labelledby="margin-t" tabindex="0"><title id="margin-t">Monthly posted Standard price split into import cost, duty and margin. Use the left and right arrow keys to move the readout.</title></svg>
+        <div class="readout mono" id="margin-read" aria-live="polite"></div>
+      </div>
+      <figcaption id="margin-cap">Import cost: Census and Statistics Department, monthly unit value of unleaded petrol imports. Duty: HK$6.06 a litre.</figcaption>
+    </figure>
+    <p>
+      The posted price is not what most drivers pay. Every brand advertises a
+      walk-in discount, and the discounts grew as posted prices rose: the
+      average across the five brands went from HK${{discMeanFirst}} a litre in the
+      first year of archived pages to HK${{discMeanLast}} in the last. Measured on
+      the price after that discount, the margin still went from
+      HK${{netMarginFirst}} to HK${{netMarginLast}}. Card and loyalty discounts go
+      deeper, and they are not in any public data.
     </p>
   </section>
 
-  <section>
+  <section class="section" aria-labelledby="f4">
+    <p class="eyebrow">Finding 4</p>
+    <h2 id="f4">Cost rises reach the pump faster than cost falls</h2>
+    <p>
+      Economists call this pattern rockets and feathers: retail prices shoot up
+      when costs rise and drift down when they fall. The standard test is an
+      error-correction model that lets rises and falls in cost pass through at
+      different speeds (Borenstein, Cameron and Gilbert 1997). It was run on
+      weekly data for all three markets with the same specification.
+    </p>
+    <figure class="exhibit">
+      <div class="chart-head">
+        <div>
+          <p class="ex-label">Exhibit 6</p>
+          <p class="chart-title">Hong Kong passes on rises faster and further than falls; Perth shows no lasting difference</p>
+        </div>
+        <div class="seg" role="group" aria-label="Market" id="pt-seg"></div>
+      </div>
+      <div class="chart">
+        <svg id="pt" viewBox="0 0 900 320" role="img" aria-labelledby="pt-t"><title id="pt-t">Share of a permanent cost change passed to the retail price over twelve weeks</title></svg>
+        <p class="pt-stat mono" id="pt-stat"></p>
+      </div>
+      <figcaption>Cumulative share of a permanent change in gasoline cost that reaches the retail price, simulated from the fitted model. Cost: Los Angeles RBOB spot for Los Angeles; US Gulf Coast spot in local currency for Hong Kong and Perth.</figcaption>
+    </figure>
+    <div class="tablewrap">
+      <table class="pt-table">
+        <thead><tr><th>Market</th><th>Rise, week 0</th><th>Fall, week 0</th><th>Rise, week 4</th><th>Fall, week 4</th><th>Rise = fall (p)</th></tr></thead>
+        <tbody>
+          <tr><td>Hong Kong</td><td>{{hkRiseZero}}%</td><td>{{hkFallZero}}%</td><td>{{hkRiseFour}}%</td><td>{{hkFallFour}}%</td><td>{{hkAsymP}}</td></tr>
+          <tr><td>Los Angeles</td><td>{{laRiseZero}}%</td><td>{{laFallZero}}%</td><td>{{laRiseFour}}%</td><td>{{laFallFour}}%</td><td>{{laAsymP}}</td></tr>
+          <tr><td>Perth</td><td>{{perthRiseZero}}%</td><td>{{perthFallZero}}%</td><td>{{perthRiseFour}}%</td><td>{{perthFallFour}}%</td><td>{{perthAsymP}}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      The gap between rises and falls is significant in Hong Kong and Los
+      Angeles with four, six or eight weeks of lags, and Perth's is not
+      significant at the 5% level in any version. Part of Hong Kong's slowness
+      in both directions is mechanical: its posted price was unchanged in
+      {{hkUnchangedWeeks}}% of weeks, so any delay shows up as slow pass-through.
+      The difference between rises and falls is the part that is not mechanical.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="f5">
     <p class="eyebrow">The comparison</p>
-    <h2>Perth: just as public, far more crowded</h2>
-    <figure>
-      <img src="../paper/figures/ex6_perth_cycle.png" alt="Daily median and 10th to 90th percentile of Perth metropolitan unleaded prices from June to August 2025, showing a sharp rise every Wednesday followed by a slide over the week." width="1300" height="560">
-      <figcaption>Perth unleaded, every metropolitan station, June to August 2025.</figcaption>
+    <h2 id="f5">Perth: just as public, far more crowded</h2>
+    <p>
+      Perth's retailers must tell the state's FuelWatch service their next
+      day's price by 2pm and hold it for 24 hours, so every price is public a
+      day ahead, as in Hong Kong. What differs is the number of sellers. Perth's
+      prices run a weekly cycle: the median is lowest on Tuesday ({{perthTue}}
+      cents a litre) and jumps on Wednesday ({{perthWed}} cents), the day prices
+      are restored. Byrne and de Roos (2019) traced that cycle to price
+      leadership by the dominant firms, so Perth is no picture of pure
+      competition either. But its coordination ends in a price war every week,
+      and on any given day its stations are spread wide.
+    </p>
+    <figure class="exhibit">
+      <p class="ex-label">Exhibit 7</p>
+      <p class="chart-title">Perth's prices jump every Wednesday and slide for the rest of the week, with a wide spread between stations</p>
+      <div class="chart">
+        <svg id="perth" viewBox="0 0 900 320" role="img" aria-labelledby="perth-t" tabindex="0"><title id="perth-t">Perth daily median and 10th to 90th percentile of station prices. Use the left and right arrow keys to move the readout.</title></svg>
+        <div class="readout mono" id="perth-read" aria-live="polite"></div>
+      </div>
+      <figcaption>Perth metropolitan unleaded, the last 120 days of the FuelWatch record. Median station in the accent color; shading covers the 10th to 90th percentile of stations. Australian cents per litre.</figcaption>
     </figure>
-    <p>
-      Perth's retailers must give FuelWatch the next day's price by 2pm and hold
-      it for 24 hours, so prices are as public as Hong Kong's. On a typical day
-      the cheapest and dearest of its {{perthStations}} stations are {{perthRange}}
-      cents a litre apart, and the most common price covers {{perthModal}}% of
-      them. The weekly cycle, low on Tuesday and restored on Wednesday, is a form
-      of coordination that Byrne and de Roos (2019) traced to price leadership,
-      but it ends in a price war every week.
-    </p>
+
+    <div class="markets">
+      <div class="market">
+        <h3>Hong Kong</h3>
+        <dl>
+          <dt>Sellers</dt><dd><b>5</b> brands</dd>
+          <dt>Days on one price</dt><dd><b>{{hkShareEqual}}%</b></dd>
+          <dt>Weeks with no change</dt><dd><b>{{hkUnchangedWeeks}}%</b></dd>
+          <dt>First-week pass-through</dt><dd>rise <b>{{hkRiseZero}}%</b>, fall <b>{{hkFallZero}}%</b></dd>
+        </dl>
+      </div>
+      <div class="market">
+        <h3>Perth</h3>
+        <dl>
+          <dt>Sellers</dt><dd><b>{{perthStations}}</b> metro stations</dd>
+          <dt>Most common price</dt><dd>posted by <b>{{perthModal}}%</b> of stations</dd>
+          <dt>Cheapest to dearest</dt><dd><b>{{perthRange}}</b> cents a litre</dd>
+          <dt>First-week pass-through</dt><dd>rise <b>{{perthRiseZero}}%</b>, fall <b>{{perthFallZero}}%</b></dd>
+        </dl>
+      </div>
+      <div class="market">
+        <h3>Los Angeles</h3>
+        <dl>
+          <dt>Sellers</dt><dd>many; EIA weekly average</dd>
+          <dt>Weeks with no change</dt><dd><b>{{laUnchangedWeeks}}%</b></dd>
+          <dt>First-week pass-through</dt><dd>rise <b>{{laRiseZero}}%</b>, fall <b>{{laFallZero}}%</b></dd>
+          <dt>Rise = fall</dt><dd>p = <b>{{laAsymP}}</b></dd>
+        </dl>
+      </div>
+    </div>
   </section>
 
-  <section>
+  <section class="section" aria-labelledby="f6">
     <p class="eyebrow">What it means</p>
-    <h2>Grounds to ask for more evidence</h2>
+    <h2 id="f6">Grounds to ask for more evidence</h2>
     <p>
-      None of this is evidence of an agreement. Hong Kong's Competition
-      Commission said in 2017 that follow-the-leader pricing on its own reveals
-      little, and US law asks for more than parallel conduct before inferring a
-      conspiracy. What the screens add is that a stable leader, increases that
-      outnumber cuts three to one, faster pass-through of rises, and a margin
-      that doubled while the product did not all occur together and persist.
-      Station costs and rents, the timing of each brand's price notices, and
-      dated discount terms would separate cost from conduct. None of them is
-      published as data.
+      None of this is evidence of an agreement, and it is not offered as one. In
+      the United States, conscious parallelism &ldquo;has not yet read conspiracy
+      out of the Sherman Act entirely&rdquo; (<i>Theatre Enterprises</i>, 1954),
+      but parallel conduct alone does not support an inference of conspiracy
+      (<i>Bell Atlantic v. Twombly</i>, 2007). Hong Kong's First Conduct Rule,
+      in force since December 2015, also targets agreements and concerted
+      practices, and identical prices on their own are neither.
     </p>
     <p>
-      Limits: the record starts in April 2020; day-level timing depends on when
-      the archive copied the file; the import price is a monthly average; the
-      margin is gross of storage, delivery, station costs and rent; card and
-      loyalty discounts are not observed.
+      Each pattern here has an innocent reading on its own. Identical prices
+      follow from identical costs; a stable leader is what price leadership
+      looks like with or without an agreement; asymmetric pass-through appears
+      in competitive markets with search costs; rents and wages rise. What the
+      screens add is that the patterns arrive together, last six years, and are
+      strongest where cost explanations are weakest: two years of increases and
+      no cuts while the import cost fell.
+    </p>
+    <p>
+      Three kinds of data would separate cost from conduct: station operating
+      costs and rents, the timing of each brand's price notices to the Consumer
+      Council, and dated discount terms by brand. The Council collects some of
+      these. None is published as data.
+    </p>
+    <p class="endnote">
+      Limits: the open-data record starts in April 2020; day-level timing
+      depends on when the archive copied the file; the import price is a
+      monthly average of consignments; the margin is gross of storage,
+      delivery, station costs and rent; card and loyalty discounts are not
+      observed.
     </p>
   </section>
 
-  <section>
-    <p class="eyebrow">Method and code</p>
-    <h2>Reproduce it</h2>
+  <section class="section" aria-labelledby="f7">
+    <p class="eyebrow">Data and method</p>
+    <h2 id="f7">Rebuilt from public files</h2>
+    <dl class="sources">
+      <dt>Hong Kong posted prices</dt>
+      <dd>The Consumer Council's pump-price file on data.gov.hk. The portal keeps a copy each time the file changes: 1,210 versions since 30 April 2020, rebuilt into a price for every brand on every day.</dd>
+      <dt>Hong Kong walk-in discounts</dt>
+      <dd>{{discDays}} Internet Archive captures of the Council's comparison page, {{discFirst}} to {{discLast}}. Their pump prices match the open-data file on {{discMatch}}% of brand-days.</dd>
+      <dt>Hong Kong import cost</dt>
+      <dd>Census and Statistics Department table 915-91104, monthly unit value of unleaded petrol imports, HK$ per litre.</dd>
+      <dt>Perth</dt>
+      <dd>FuelWatch's daily price for every metropolitan station, unleaded, January 2020 to September 2026.</dd>
+      <dt>Los Angeles and world gasoline</dt>
+      <dd>US Energy Information Administration weekly retail and daily spot prices; exchange rates from FRED.</dd>
+    </dl>
     <p>
-      Every number on this page and in the paper is written by
-      <code>scripts/export_numbers.py</code> from the analysis outputs. The fetch
-      scripts download every source; <code>scripts/run_all.py</code> runs the
-      screens; <code>docs/decisions.md</code> lists each data decision. The
-      paper is <a href="../paper/fuel-lockstep.pdf">a PDF of 11 pages</a> with the
-      full method and references.
+      Every number on this page, on the <a href="../">explorer</a> and in the
+      <a href="../paper/fuel-lockstep.pdf">paper</a> is written from the analysis
+      outputs by one script, so a rerun updates all three. Each data decision,
+      from the archive's label change to Perth's Tuesday price, is listed in
+      <a href="https://github.com/lyhjeremy/fuel-lockstep/blob/main/docs/decisions.md">docs/decisions.md</a>.
     </p>
   </section>
 
 </div>
+<script src="../assets/app.js"></script>
