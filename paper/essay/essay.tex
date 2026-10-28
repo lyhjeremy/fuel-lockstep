@@ -1,0 +1,261 @@
+\documentclass[11pt]{article}
+
+% Page layout and typography
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{parskip}
+\setstretch{1.12}
+\usepackage{microtype}
+
+% Math, tables and figures
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween,groupplots}
+
+% Links, captions and footnotes
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf}
+\usepackage{footmisc}
+\setlength{\footnotesep}{10pt}
+
+% Colors: one accent for retail prices and cost rises, one for costs and cost falls
+\usepackage{xcolor}
+\definecolor{oxide}{HTML}{8C3A1E}
+\definecolor{pine}{HTML}{2C5852}
+\definecolor{stone}{HTML}{9A9D94}
+
+\pgfplotsset{
+  every axis/.append style={
+    width=0.95\textwidth, axis lines=left, tick style={draw=none},
+    ymajorgrids=true, grid style={stone!40}, tick label style={font=\scriptsize},
+    label style={font=\small}, legend style={font=\scriptsize, draw=none, fill=none},
+  },
+}
+
+% Every result in the text comes from the analysis outputs (scripts/export_numbers.py)
+\input{../numbers.tex}
+\input{essay_numbers.tex}
+\newcommand{\hk}{HK\$}
+
+\title{Why Hong Kong petrol prices move together while Perth and Los Angeles prices differ:\\
+\large market structure, transparency and parallel pricing, 2020 to 2026}
+\author{Yiu-Hon Jeremy Lee}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Hong Kong's five petrol brands post the same pump price on almost every day. From 30 April 2020 to October 2026 all five posted the same Standard price on \hkShareEqual\% of days. In Perth, by contrast, the cheapest and dearest of about \perthStations{} metropolitan stations are typically \perthRange{} cents a litre apart. Using six years of brand-level posted prices from the Hong Kong Consumer Council, Hong Kong's monthly import cost of petrol, daily prices at every Perth station, and weekly Los Angeles prices, this essay asks whether Hong Kong's alignment is what market structure and transparency would produce on their own, or whether it shows patterns that costs do not explain. It sets out the legal and economic distinctions between price fixing, explicit collusion, tacit coordination and parallel pricing, then runs four screens that separate structure-driven alignment from patterns that warrant scrutiny. Hong Kong's prices follow a stable leader within about \hkMedianLag{} days, rose \hkEpisodesUp{} times against \hkEpisodesDown{} cuts, pass cost increases through faster than cost decreases, and carry a margin over import cost and duty that roughly doubled. None of this proves an agreement. Together the patterns justify asking for evidence that only the firms and the regulator hold.
+\end{abstract}
+
+\section{Introduction}
+
+Most people buy fuel every week, and they form quick judgments about whether the market feels competitive. In Hong Kong five brands (Caltex, Esso, PetroChina, Shell and Sinopec) run nearly every petrol station, and on any given day they almost always post the same price for each grade. What a driver pays depends on brand-specific walk-in discounts that are advertised publicly.\footnote{Consumer Council, Oil Price Watch, \url{https://oil-price.consumer.org.hk/en}. Posted prices since April 2020 come from the Council's pump-price file as archived on data.gov.hk; walk-in discounts from Internet Archive captures of the comparison page.} In Perth, every station's price is just as public, but on a typical day the gap between the cheapest and dearest metropolitan station is \perthRange{} cents a litre.\footnote{FuelWatch, Government of Western Australia, daily retail prices by station, January 2020 to September 2026.}
+
+Uniformity and dispersion can both be competitive outcomes. The number of sellers, how transparent prices are, how costs feed into prices, the format of stations and how hard consumers search all shape what drivers see. This essay asks what parallel pricing in Hong Kong does and does not tell us about competition. A single day of prices cannot answer that, so the essay uses six years of them and runs the tests that competition economists use to decide whether a closer look is warranted.
+
+\section{Data and stylized facts}
+
+Table~\ref{tab:data} lists the sources. The Hong Kong record is rebuilt from 1,210 archived versions of the Consumer Council's pump-price file, which gives each brand's posted price on each of \hkDays{} days. Both of Hong Kong's petrol grades are 98 RON, and the duty on petrol has been \hk6.06 a litre since 1998.\footnote{Competition Commission, \emph{Competition Commission Announces Findings of Its Study into Hong Kong's Auto-fuel Market}, press release, 4 May 2017\label{fn:cc}; Consumer Council, \emph{Auto-fuel Price Trend: Explanatory Note}.} The essay uses the Standard grade throughout.
+
+\begin{table}[H]
+\centering\small
+\caption{Data sources}
+\label{tab:data}
+\begin{tabularx}{\textwidth}{@{}lXl@{}}
+\toprule
+Series & Source & Span \\
+\midrule
+Hong Kong posted prices & Consumer Council pump-price file, data.gov.hk archive & Apr 2020 to Oct 2026 \\
+Hong Kong walk-in discounts & Consumer Council comparison page, Internet Archive (\discDays{} days) & Nov 2020 to Jul 2026 \\
+Hong Kong import cost & Census and Statistics Department, table 915-91104 & monthly \\
+Perth station prices & FuelWatch, every metropolitan station, unleaded & Jan 2020 to Sep 2026 \\
+Los Angeles & US Energy Information Administration, weekly retail and daily spot & 2020 to 2026 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Three stylized facts follow. First, Hong Kong's posted prices are aligned: all five brands posted the same Standard price on \hkShareEqual\% of days, and on the remaining days the gap was usually 20 cents and closed within days. Second, the net price differs by brand. On \essayDiscDate, the last archived day, every brand posted \hk\essayPump{} a litre, while walk-in discounts ranged from \hk\essayDiscLow{} (\essayDiscLowBrand) to \hk\essayDiscHigh{} (\essayDiscHighBrand), so net prices ran from \hk\essayNetLow{} to \hk\essayNetHigh. Third, Perth's prices are dispersed and cyclical: the most common price on a typical day is posted by only \perthModal\% of stations, and the median falls to its weekly low on Tuesday (\perthTue{} cents) before jumping on Wednesday (\perthWed{} cents). These facts are descriptive. The sections below ask what explains them.
+
+\section{Why the market structures differ}
+
+Hong Kong's retail market combines a few sellers with dense geography and limited land. The Competition Commission found that the market is highly concentrated, that the terminal storage facilities every importer needs are owned by four oil companies, that most fuel is sold through stations the same companies own, and that the major retailers ``are likely to have broadly similar cost structures, with no low-cost `maverick' competitor.''\footnote{Competition Commission, press release, 4 May 2017 (note~\ref{fn:cc}).} Firms that buy the same product at similar prices and face the same duty can converge on a common posted price, while public discount ladders segment customers. A driver saves by choosing the brand whose discount program fits their routine; every signboard shows the same number.
+
+Perth and Los Angeles have many more sellers. Perth's \perthStations{} metropolitan stations trade under dozens of brands, including supermarket-linked and independent chains, and Western Australia requires every retailer to notify the next day's price by 2pm and hold it for 24 hours.\footnote{Consumer Protection, Western Australia, \emph{Use FuelWatch to Find Best Deal}. Wang (2009) studies pricing before and under this timing rule: Z.~Wang, ``(Mixed) Strategy in Oligopoly Pricing: Evidence from Gasoline Price Cycles Before and Under a Timing Regulation,'' \emph{Journal of Political Economy} 117(6): 987--1030.} Prices are therefore at least as transparent as Hong Kong's, but stations pursue different business models. Some price aggressively to sell groceries or fill memberships; others hold a brand premium. With many stations within a short drive, local spreads persist.
+
+\section{Six years of evidence}
+
+Figure~\ref{fig:steps} shows four months of posted prices in 2026, a period of rising costs. The five lines sit on top of each other except for short stretches after one brand moves. Shell's line usually moves first.
+
+\begin{figure}[H]
+\centering
+\caption{Hong Kong posted Standard price by brand, February to May 2026 (\hk{} per litre)}
+\label{fig:steps}
+\begin{tikzpicture}
+\begin{axis}[height=6.2cm, ymin=29, ymax=33.2, xmin=0, xmax=119,
+  xtick={0,28,59,89}, xticklabels={1 Feb,1 Mar,1 Apr,1 May}, ylabel={\hk{} per litre},
+  legend pos=south east, legend cell align=left]
+\addplot[const plot, stone, thin] table[x=day, y=Caltex, col sep=comma] {data/fig1_steps.csv};
+\addplot[const plot, stone, thin, forget plot] table[x=day, y=Esso, col sep=comma] {data/fig1_steps.csv};
+\addplot[const plot, stone, thin, forget plot] table[x=day, y=PetroChina, col sep=comma] {data/fig1_steps.csv};
+\addplot[const plot, stone, thin, forget plot] table[x=day, y=Sinopec, col sep=comma] {data/fig1_steps.csv};
+\addplot[const plot, oxide, thick] table[x=day, y=Shell, col sep=comma] {data/fig1_steps.csv};
+\legend{Other four brands, Shell}
+\end{axis}
+\end{tikzpicture}
+\par\footnotesize Source: Consumer Council posted prices, data.gov.hk archive. Daily.
+\end{figure}
+
+Across the whole record there were \hkEpisodes{} price changes. Figure~\ref{fig:years} counts them by direction and year. Increases outnumber cuts in every year. In 2023 and 2024 there were \hkUpTwentyThreeFour{} increases and \hkDownTwentyThreeFour{} cuts, while the import cost of petrol fell.
+
+\begin{figure}[H]
+\centering
+\caption{Posted-price increases and cuts by year, Standard petrol}
+\label{fig:years}
+\begin{tikzpicture}
+\begin{axis}[ybar, height=5.6cm, bar width=9pt, ymin=0, ymax=30, xtick=data,
+  x tick label style={/pgf/number format/1000 sep=}, enlarge x limits=0.08,
+  ylabel={Number of changes}, nodes near coords, nodes near coords style={font=\scriptsize},
+  legend style={at={(0.5,1.03)}, anchor=south, legend columns=-1, /tikz/every even column/.append style={column sep=8pt}}]
+\addplot[fill=oxide, draw=none] table[x=year, y=up, col sep=comma] {data/fig3_years.csv};
+\addplot[fill=pine, draw=none] table[x=year, y=down, col sep=comma] {data/fig3_years.csv};
+\legend{Increases, Cuts}
+\end{axis}
+\end{tikzpicture}
+\par\footnotesize 2020 starts on 30 April; 2026 ends on 28 October.
+\end{figure}
+
+Figure~\ref{fig:margin} splits the monthly posted price into the import cost of the petrol, the duty, and the remainder, which pays for storage, distribution, stations, land and profit. The posted price averaged \hk\postedFirst{} a litre in the first twelve months of the record and \hk\postedLast{} in the last twelve. Of that \hk\postedRise{} rise, \hk\importRise{} was the cost of the petrol and \hk\marginRise{} was margin. Walk-in discounts widened over the same years, but measured on the average price after the walk-in discount, the margin still rose from \hk\netMarginFirst{} to \hk\netMarginLast.
+
+\begin{figure}[H]
+\centering
+\caption{Hong Kong posted Standard price split into import cost, duty and margin (\hk{} per litre)}
+\label{fig:margin}
+\begin{tikzpicture}
+\begin{axis}[height=6.2cm, ymin=0, ymax=36, xmin=2020.25, xmax=2026.6, stack plots=y,
+  area style, x tick label style={/pgf/number format/1000 sep=}, xtick={2021,2022,2023,2024,2025,2026},
+  ylabel={\hk{} per litre}, legend style={at={(0.5,1.03)}, anchor=south, legend columns=-1, /tikz/every even column/.append style={column sep=8pt}}]
+\addplot[fill=pine, draw=none] table[x=t, y=import, col sep=comma] {data/fig2_margin.csv} \closedcycle;
+\addplot[fill=stone, draw=none] table[x=t, y=duty, col sep=comma] {data/fig2_margin.csv} \closedcycle;
+\addplot[fill=oxide, draw=none] table[x=t, y=margin, col sep=comma] {data/fig2_margin.csv} \closedcycle;
+\legend{Import cost, Duty (\hk6.06), Margin}
+\end{axis}
+\end{tikzpicture}
+\par\footnotesize Sources: Consumer Council posted prices (monthly mean); Census and Statistics Department import unit value of unleaded petrol.
+\end{figure}
+
+\section{Price fixing, collusion, tacit coordination and parallel pricing}
+
+Competition law separates unlawful coordination from lawful conduct, even when the lawful conduct produces identical prices.
+
+\textbf{Price fixing.} An agreement among competitors to raise, fix or stabilize prices is unlawful per se under the Sherman Act, without inquiry into its reasonableness or its effects.\footnote{\emph{United States v. Socony-Vacuum Oil Co.}, 310 U.S. 150, 223 (1940).} The same treatment covers agreements on discounts, surcharges, and the timing or size of price changes.
+
+\textbf{Explicit collusion.} Collusion is broader than price fixing: it includes agreements to allocate customers or territories, restrict output or rig bids. It is usually proved by communications (meetings, messages, records) showing that competitors replaced independent decisions with a common plan. Hong Kong's First Conduct Rule prohibits agreements and concerted practices that have the object or effect of harming competition.\footnote{Competition Ordinance (Cap.~619), s.~6. The conduct rules came into force on 14 December 2015.}
+
+\textbf{Tacit coordination and parallel pricing.} In concentrated, transparent markets, firms can anticipate and match each other's moves without any agreement, which yields identical prices and synchronized changes.\footnote{G.~J. Stigler, ``A Theory of Oligopoly,'' \emph{Journal of Political Economy} 72(1): 44--61 (1964); E.~J. Green and R.~H. Porter, ``Noncooperative Collusion under Imperfect Price Information,'' \emph{Econometrica} 52(1): 87--100 (1984).} Parallel pricing is the observed similarity itself. The Supreme Court has held that ``conscious parallelism'' has ``not yet read conspiracy out of the Sherman Act entirely,''\footnote{\emph{Theatre Enterprises, Inc. v. Paramount Film Distributing Corp.}, 346 U.S. 537, 541 (1954).} but that parallel conduct alone is ``just as much in line with a wide swath of rational and competitive business strategy'' and must be placed ``in a context that raises a suggestion of a preceding agreement.''\footnote{\emph{Bell Atlantic Corp. v. Twombly}, 550 U.S. 544 (2007) (Part II).} Hong Kong's Competition Commission made the same point about this market: follow-the-leader pricing ``reveals very little about whether firms are competing or coordinating.''\footnote{Competition Commission, \emph{Study into Hong Kong's Auto-fuel Market: At a Glance} (May 2017).}
+
+\section{Does the Hong Kong pattern imply price fixing?}
+
+\textbf{Why uniformity can arise competitively.} Several features of the market produce aligned posted prices without an agreement. The brands import the same 98 RON product, pay the same duty and face similar storage and land costs, so their costs move together. Posted prices are public and easy to match, so a brand that cuts gains little before rivals follow. With five firms that interact every day, each sees and matches announcements quickly. And brands do compete on net price: on any given day the walk-in discounts differ widely across brands. Under these conditions identical posted prices with different net prices are consistent with lawful, structure-driven alignment.
+
+\textbf{What would raise concern.} The question is whether firms react independently to common conditions or move together in ways that costs do not explain. Synchronized changes on days when nothing observable moved costs, discount terms that converge and move in lockstep, and margins that widen while costs fall are harder to explain competitively. Evidence of communications about future prices, timing or discount depth would go directly to agreement. The next section runs the screens that look for the first three patterns in the data.
+
+\section{The screens, run}
+
+Screens flag patterns that warrant a closer look; they do not prove coordination.\footnote{J.~E. Harrington, Jr., ``Detecting Cartels,'' in P.~Buccirossi (ed.), \emph{Handbook of Antitrust Economics} (MIT Press, 2008).} Table~\ref{tab:screens} summarizes four of them for Hong Kong, with Perth and Los Angeles as benchmarks.
+
+\begin{table}[H]
+\centering\small
+\caption{Four screens, Hong Kong against the benchmarks}
+\label{tab:screens}
+\begin{tabularx}{\textwidth}{@{}l X X@{}}
+\toprule
+Screen & Hong Kong & Perth and Los Angeles \\
+\midrule
+Timing & All five brands matched within a week in \hkShareFullWeek\% of \hkEpisodes{} changes, usually within \hkMedianLag{} days; same day in \hkShareSameDay\% & Perth stations restore prices together each Wednesday, then undercut each other through the week \\
+Direction & \hkEpisodesUp{} increases, \hkEpisodesDown{} cuts; none cut in 2023 and 2024 & Perth's price falls on most days of the week \\
+Margin & Margin over import cost and duty \hk\marginFirst{} to \hk\marginLast{} (net of walk-in discount \hk\netMarginFirst{} to \hk\netMarginLast) & Not computed \\
+Pass-through & Week 0: \hkRiseZero\% of a rise, \hkFallZero\% of a fall ($p = \hkAsymP$) & Los Angeles \laRiseZero\% against \laFallZero\% ($p = \laAsymP$); Perth \perthRiseZero\% against \perthFallZero\% ($p = \perthAsymP$) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Timing screen.} A change episode opens with the first brand to change price and collects every other brand's first change in the same direction within seven days. All five brands moved in \hkShareFullWeek\% of episodes, by the same amount in \hkShareSameSize\% of those, and on the same day in only \hkShareSameDay\%. The order is stable: when one brand moved alone, it was Shell \hkLeadShell{} times, Esso \hkLeadEsso{} and Caltex \hkLeadCaltex. Of the \hkLone{} moves that no other brand followed, \hkLoneReversed{} were taken back within two weeks. This is the signature of price leadership. It is consistent with tacit coordination and also with independent firms matching a visible leader.
+
+\textbf{Variance and direction screen.} Coordinated prices tend to be stickier than costs.\footnote{R.~M. Abrantes-Metz, L.~M. Froeb, J.~Geweke and C.~T. Taylor, ``A Variance Screen for Collusion,'' \emph{International Journal of Industrial Organization} 24(3): 467--486 (2006).} Hong Kong's posted price was unchanged in \hkUnchangedWeeks\% of weeks, against \laUnchangedWeeks\% in Los Angeles. More telling is direction: through 2023 and 2024, years in which the import cost fell, the posted price was raised \hkUpTwentyThreeFour{} times and never cut.
+
+\textbf{Margin screen.} Of the \hk\postedRise{} rise in the posted price between the first and last year of the record, \hk\marginRise{} (\marginShareOfRise\%) went to margin. From January 2023 to December 2025 the posted price rose from \hk\spanPostedFrom{} to \hk\spanPostedTo{} while the import cost fell from \hk\spanImportFrom{} to \hk\spanImportTo. Rents and wages also rose in those years, and the margin is gross of them, so this screen cannot say how much of the increase is profit.
+
+\textbf{Pass-through screen.} An error-correction model on weekly data estimates how fast cost rises and cost falls reach the retail price.\footnote{S.~Borenstein, A.~C. Cameron and R.~Gilbert, ``Do Gasoline Prices Respond Asymmetrically to Crude Oil Price Changes?,'' \emph{Quarterly Journal of Economics} 112(1): 305--339 (1997). Costs: Los Angeles RBOB spot for Los Angeles; US Gulf Coast spot in local currency for Hong Kong and Perth. Four weekly lags; results hold with six and eight.} Figure~\ref{fig:pt} shows the result. Hong Kong passes rises through faster and further than falls; Los Angeles shows a smaller gap that closes within weeks; Perth's gap is not significant. Asymmetric pass-through appears in competitive markets with search costs, so on its own it is a weak signal; next to the other three it is one more pattern that points the same way.
+
+\begin{figure}[H]
+\centering
+\caption{Share of a permanent cost change passed to the retail price}
+\label{fig:pt}
+\begin{tikzpicture}
+\begin{groupplot}[group style={group size=3 by 1, horizontal sep=0.6cm, yticklabels at=edge left},
+  width=0.355\textwidth, height=5cm, ymin=-0.05, ymax=1.45, xmin=0, xmax=12, xtick={0,4,8,12},
+  xlabel={Weeks}, title style={font=\small\bfseries}]
+\nextgroupplot[title=Hong Kong, ylabel={Share passed through}]
+\addplot[oxide, thick] table[x=week, y=hong_rise, col sep=comma] {data/fig4_pt.csv};
+\addplot[pine, thick, dashed] table[x=week, y=hong_fall, col sep=comma] {data/fig4_pt.csv};
+\addplot[stone, dotted, domain=0:12] {1};
+\nextgroupplot[title=Los Angeles]
+\addplot[oxide, thick] table[x=week, y=los_rise, col sep=comma] {data/fig4_pt.csv};
+\addplot[pine, thick, dashed] table[x=week, y=los_fall, col sep=comma] {data/fig4_pt.csv};
+\addplot[stone, dotted, domain=0:12] {1};
+\nextgroupplot[title=Perth, legend style={at={(0.97,0.03)}, anchor=south east}]
+\addplot[oxide, thick] table[x=week, y=perth_rise, col sep=comma] {data/fig4_pt.csv};
+\addplot[pine, thick, dashed] table[x=week, y=perth_fall, col sep=comma] {data/fig4_pt.csv};
+\addplot[stone, dotted, domain=0:12, forget plot] {1};
+\legend{Cost rise, Cost fall}
+\end{groupplot}
+\end{tikzpicture}
+\par\footnotesize Simulated from the fitted error-correction model for each market. Dotted line: full pass-through.
+\end{figure}
+
+The choice of benchmark needs care. Perth is no picture of pure competition: its weekly cycle is itself a coordination device, which Byrne and de Roos trace to price leadership and price experiments by the dominant firms.\footnote{D.~P. Byrne and N.~de~Roos, ``Learning to Coordinate: A Study in Retail Gasoline,'' \emph{American Economic Review} 109(2): 591--619 (2019).} But Perth's coordination ends in a price war every week and leaves stations spread wide (Figure~\ref{fig:perth}). Hong Kong's ends in one price that sits still.
+
+\begin{figure}[H]
+\centering
+\caption{Perth unleaded, every metropolitan station, June to August 2025 (Australian cents per litre)}
+\label{fig:perth}
+\begin{tikzpicture}
+\begin{axis}[height=5.6cm, xmin=0, xmax=91, xtick={0,30,61,91}, xticklabels={1 Jun,1 Jul,1 Aug,31 Aug},
+  ylabel={Cents per litre}, legend style={at={(0.5,1.03)}, anchor=south, legend columns=-1, /tikz/every even column/.append style={column sep=8pt}}]
+\addplot[name path=hi, draw=none, forget plot] table[x=day, y=p90, col sep=comma] {data/fig5_perth.csv};
+\addplot[name path=lo, draw=none, forget plot] table[x=day, y=p10, col sep=comma] {data/fig5_perth.csv};
+\addplot[stone!50] fill between[of=hi and lo];
+\addplot[oxide, thick, const plot mark mid] table[x=day, y=median, col sep=comma] {data/fig5_perth.csv};
+\legend{10th to 90th percentile of stations, Median station}
+\end{axis}
+\end{tikzpicture}
+\par\footnotesize Source: FuelWatch, Government of Western Australia. Daily.
+\end{figure}
+
+\section{Consumer and regulatory implications}
+
+\textbf{Consumers.} In Hong Kong the posted price is nearly the same everywhere, so the choice of brand saves more than the choice of station. On \essayDiscDate{} the walk-in discount on Standard ranged from \hk\essayDiscLow{} to \hk\essayDiscHigh{} a litre depending on the brand, and card and membership discounts go further. In Perth, the day of the week and the station matter: buying on the low day of the cycle, at a station near the bottom of the spread, saves tens of cents a litre.
+
+\textbf{Regulators.} The screens point to the data that would separate cost from conduct, none of which is public: station operating costs and land rents; the time at which each brand notifies the Consumer Council of a change, and whether brands learn of rivals' changes before the public does; and dated discount terms by brand. The Commission's 2017 recommendations (prominent display of pump prices and walk-in discounts, more station sites, and a review of how sites are tendered) address entry and transparency.\footnote{Competition Commission, press release, 4 May 2017 (note~\ref{fn:cc}).} The margin since then has roughly doubled, on posted and on net prices.
+
+\section{Limitations and next steps}
+
+The Hong Kong record begins in April 2020, the first version kept by the open-data archive, so it does not cover the years the Commission studied. Day-level timing depends on when the archive harvested the file, which limits how precisely lags of one day can be measured; the order of leaders and followers across \hkEpisodes{} episodes does not depend on it. The import cost is a monthly average of consignments, and the weekly pass-through model uses a world gasoline price of a lower grade than Hong Kong's 98 RON. The margin is gross of storage, distribution, station costs and rent, and card and loyalty discounts are not observed. Practical next steps are a daily record of discount terms by brand, a cost series for station operation and land, and an event study of how each brand responds to large, dated cost shocks.
+
+\section{Conclusion}
+
+Parallel pricing is easy to see from the curb and hard to interpret without context. Six years of Hong Kong data show one posted price, set by a stable leader and matched within days; increases that outnumber cuts three to one, with none through two years of falling costs; faster pass-through of cost rises than cost falls; and a margin over import cost and duty that roughly doubled, before and after walk-in discounts. Perth shows what full transparency looks like with many sellers: coordination of a kind, but wide and moving prices. Market structure can explain identical prices on its own. It explains less of the rest. Establishing price fixing or collusion would require evidence of agreement or facilitating practices, which these data cannot provide. What the screens provide is a structured case for asking for it.
+
+\vspace{1em}
+\noindent\footnotesize Code, data and the full method: \url{https://github.com/lyhjeremy/fuel-lockstep}. Every figure in the text is generated from the analysis outputs.
+
+\end{document}

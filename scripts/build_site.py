@@ -28,6 +28,9 @@ def main():
     pdf = ROOT / "paper/main.pdf"
     if pdf.exists():
         shutil.copy(pdf, ROOT / "paper/fuel-lockstep.pdf")
+    essay = ROOT / "paper/essay/essay.pdf"
+    if essay.exists():
+        shutil.copy(essay, ROOT / "paper/fuel-lockstep-essay.pdf")
     print("index.html written")
 
 

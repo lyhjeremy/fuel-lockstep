@@ -2,7 +2,7 @@
 
 Hong Kong's five petrol brands (Caltex, Esso, PetroChina, Shell and Sinopec) almost always post the same pump price. This project rebuilds every posted price change since April 2020 and tests whether the pattern looks like what common costs would produce or shows features costs do not explain. Los Angeles and Perth are the comparison markets.
 
-[Interactive site](https://lyhjeremy.github.io/fuel-lockstep/) · [Write-up](https://lyhjeremy.github.io/fuel-lockstep/overview/) · [Paper (PDF)](https://lyhjeremy.github.io/fuel-lockstep/paper/fuel-lockstep.pdf)
+[Interactive site](https://lyhjeremy.github.io/fuel-lockstep/) · [Write-up](https://lyhjeremy.github.io/fuel-lockstep/overview/) · [Paper (PDF)](https://lyhjeremy.github.io/fuel-lockstep/paper/fuel-lockstep.pdf) · [Essay version (PDF)](https://lyhjeremy.github.io/fuel-lockstep/paper/fuel-lockstep-essay.pdf)
 
 Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/blob/main/DESIGN_STANDARDS.md).
 
@@ -48,7 +48,9 @@ python scripts/make_exhibits.py         # paper/figures/
 python scripts/export_numbers.py        # paper/numbers.tex, site/numbers.json
 python scripts/export_web.py            # assets/data.json
 python scripts/build_site.py            # index.html, README.md, paper/fuel-lockstep.pdf
-cd paper && latexmk -pdf main.tex
+python scripts/export_essay_data.py   # figure data and numbers for the essay
+(cd paper && latexmk -pdf main.tex)
+(cd paper/essay && latexmk -pdf essay.tex)
 ```
 
 The processed data in `data/` is committed, so `run_all.py` onward works without downloading anything.
@@ -61,7 +63,7 @@ The processed data in `data/` is committed, so `run_all.py` onward works without
 | `analysis/` | `lockstep.py` (alignment and change episodes), `passthrough.py` (asymmetric error-correction model) |
 | `data/` | processed inputs; `data/raw/` is gitignored |
 | `results/` | every output the paper and site quote, plus `passthrough_robustness.csv` |
-| `paper/` | LaTeX source, figures and the PDF |
+| `paper/` | LaTeX source, figures and the PDF; `paper/essay/` is a shorter essay version with pgfplots figures |
 | `index.html`, `assets/` | the interactive site |
 | `overview/` | the write-up, generated from `site/overview.fragment.html` by the shared overview builder |
 | `docs/` | spec and data decisions |

@@ -17,3 +17,9 @@ paper/main.pdf
 results/run_log.txt
 paper/*.bcf
 paper/*.run.xml
+paper/essay/*.aux
+paper/essay/*.log
+paper/essay/*.out
+paper/essay/*.fls
+paper/essay/*.fdb_latexmk
+paper/essay/essay.pdf
