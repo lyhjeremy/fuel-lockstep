@@ -1,0 +1,60 @@
+/* Fuel Lockstep page styles. Tokens come from ledger.css. */
+body{border-top:6px solid var(--signal)}
+.bar-link{display:block;background:var(--ink);color:var(--paper);text-align:center;padding:11px 18px;
+  font:600 .9rem/1.45 var(--font-body);text-decoration:none}
+.bar-link:hover{background:var(--signal);color:var(--paper)}
+.wrap-wide{max-width:min(100%,1040px)}
+.masthead h1{margin-top:var(--s1)}
+.mono{font-family:var(--font-mono)}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Day board */
+.board{border:2px solid var(--ink);background:var(--panel);padding:var(--s3);margin:var(--s4) 0}
+.board-controls{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s2);align-items:center;margin-bottom:var(--s3)}
+.board-controls label{margin:0}
+.board-controls input[type=range]{padding:0;border:0;background:transparent;accent-color:var(--signal)}
+.board-controls output{font-size:1rem;min-width:11ch;text-align:right}
+.board-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--s4)}
+.board-title{font:600 .8rem/1.4 var(--font-body);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);margin-bottom:var(--s1)}
+.board-title .unit{text-transform:none;letter-spacing:0;font-weight:400}
+.price-board{font-size:1rem;margin:0}
+.price-board td{padding:6px 0;border-bottom:1px solid var(--rule)}
+.price-board td.num{font-size:1.35rem}
+.price-board tr.off td.num{color:var(--signal);font-weight:600}
+.board-note{font-size:.85rem;color:var(--ink-2);margin:var(--s1) 0 0}
+#perth-strip{width:100%;height:auto;display:block}
+
+/* Charts */
+.chart-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:var(--s1) var(--s2);margin-top:var(--s3)}
+.chart-title{font:600 .95rem/1.4 var(--font-body);margin:0}
+.seg{display:flex;flex-wrap:wrap;gap:0}
+.seg .btn{font-size:.8rem;padding:4px 10px;margin-left:-1px}
+.seg .btn[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chart{margin:var(--s2) 0 var(--s3);position:relative}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart svg:focus-visible{outline:2px solid var(--signal);outline-offset:4px}
+.readout{min-height:1.6em;font-size:.82rem;color:var(--ink);margin-top:var(--s1)}
+.pt-stat{font-size:.85rem;margin:var(--s1) 0 0}
+svg text{font-family:var(--font-body);fill:var(--ink-2)}
+svg .lab{fill:var(--ink);font-size:13px}
+svg .axis line,svg .grid line{stroke:var(--rule);stroke-width:1}
+svg .axis text{font-size:12px}
+svg .base{stroke:var(--edge);stroke-width:1}
+svg .s-oxide{stroke:var(--signal);fill:none;stroke-width:2.2}
+svg .s-pine{stroke:var(--signal-2);fill:none;stroke-width:2.2;stroke-dasharray:6 4}
+svg .s-gray{stroke:var(--edge);fill:none;stroke-width:1.2}
+svg .f-oxide{fill:var(--signal)}
+svg .f-pine{fill:var(--signal-2)}
+svg .f-gray{fill:var(--edge)}
+svg .f-band{fill:var(--edge);opacity:.28}
+svg .cursor{stroke:var(--ink);stroke-width:1}
+svg .dot{stroke:var(--panel);stroke-width:2}
+
+@media (max-width:720px){
+  .board{padding:var(--s2)}
+  .board-grid{grid-template-columns:1fr;gap:var(--s3)}
+  .board-controls{grid-template-columns:1fr;gap:var(--s1)}
+  .board-controls output{text-align:left}
+  h1{font-size:2.2rem}
+  h2{font-size:1.5rem}
+}

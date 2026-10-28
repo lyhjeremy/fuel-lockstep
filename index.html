@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lockstep at the pump: six years of Hong Kong petrol prices</title>
+<meta name="description" content="Hong Kong's five petrol brands posted the same Standard price on 87.6% of days from 2020 to 2026. Prices rose 110 times and fell 33, and the margin over import cost and duty roughly doubled. Perth and Los Angeles for comparison.">
+<meta property="og:title" content="Lockstep at the pump">
+<meta property="og:description" content="Six years of Hong Kong petrol prices, brand by brand, against costs and against Perth and Los Angeles.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="ledger.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<a class="bar-link" href="overview/">Read the full write-up, or download the paper (PDF)</a>
+<main id="main" class="wrap wrap-wide">
+
+<header class="masthead">
+  <p class="meta">Retail fuel, Hong Kong, 30 April 2020 to October 2026</p>
+  <h1>Five brands, one price</h1>
+  <p class="lede">Hong Kong's five petrol brands posted the same Standard pump price on 87.6% of the last 2,373 days. When one moves, the others follow within about 2 days. Pick any day below and compare it with Perth, where 419 stations post their own prices.</p>
+</header>
+
+<section class="board" aria-labelledby="board-h">
+  <h2 id="board-h" class="visually-hidden">Prices on one day</h2>
+  <div class="board-controls">
+    <label for="day">Day</label>
+    <input id="day" type="range" min="0" max="1" value="0" step="1">
+    <output id="day-out" for="day" class="mono"></output>
+  </div>
+  <div class="board-grid">
+    <div class="board-hk">
+      <p class="board-title">Hong Kong, posted Standard price <span class="unit">HK$ per litre</span></p>
+      <table class="price-board" aria-live="polite">
+        <tbody id="hk-board"></tbody>
+      </table>
+      <p class="board-note" id="hk-note"></p>
+    </div>
+    <div class="board-perth">
+      <p class="board-title">Perth, unleaded, every metro station <span class="unit">Australian cents per litre</span></p>
+      <svg id="perth-strip" viewBox="0 0 520 150" role="img" aria-labelledby="perth-strip-t"><title id="perth-strip-t">Spread of Perth station prices on the selected day</title></svg>
+      <p class="board-note" id="perth-note"></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="s1">
+  <h2 id="s1">One moves, four follow</h2>
+  <p>Over 143 price changes, all five brands matched within a week 90% of the time, and by the same amount in 83% of those. They moved on the same day only 1.4% of the time. Shell is the brand most often out in front.</p>
+  <div class="chart-head">
+    <p class="chart-title">Posted Standard price by brand, daily</p>
+    <div class="seg" role="group" aria-label="Year" id="year-seg"></div>
+  </div>
+  <figure class="chart">
+    <svg id="steps" viewBox="0 0 900 340" role="img" aria-labelledby="steps-t" tabindex="0"><title id="steps-t">Posted Standard price by brand. Use the left and right arrow keys to move the readout.</title></svg>
+    <div class="readout mono" id="steps-read" aria-live="polite"></div>
+    <figcaption>Shell in oxide, the other four in gray. Consumer Council posted prices, as archived on data.gov.hk. Hover or use the arrow keys for each brand's price.</figcaption>
+  </figure>
+
+  <h3>Who goes first</h3>
+  <p>In each complete episode, the number of days after the first move that each brand matched it. When one brand moved alone, it was Shell 37 times, Esso 17 and Caltex 12. PetroChina and Sinopec almost never go first.</p>
+  <figure class="chart">
+    <svg id="lags" viewBox="0 0 900 330" role="img" aria-labelledby="lags-t"><title id="lags-t">Count of complete change episodes by brand and by lag in days</title></svg>
+    <figcaption>Circle area is the number of episodes (hover a circle for its count). Lag 0 (oxide) means the brand was among the first to move.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="s2">
+  <h2 id="s2">Up 110 times, down 33</h2>
+  <p>The median increase was HK$0.20 a litre and the median cut HK$0.10. In 2023 and 2024 together there were 17 increases and no cuts, while the price of imported petrol fell.</p>
+  <figure class="chart">
+    <svg id="years" viewBox="0 0 900 230" role="img" aria-labelledby="years-t"><title id="years-t">Price increases and cuts by year</title></svg>
+    <figcaption>Change episodes for Standard petrol by year. 2020 starts on 30 April; 2026 runs to 28 October.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="s3">
+  <h2 id="s3">Where the money goes</h2>
+  <p>Hong Kong imports all its petrol, and the duty has been HK$6.06 a litre since 1998. What is left after the import cost and the duty pays for storage, delivery, stations, land and profit. On the posted price it averaged HK$8.76 a litre in the first twelve months of this record and HK$19.03 in the last twelve. From January 2023 to December 2025 the posted price went from HK$23.09 to HK$28.89 while the import cost went from HK$5.23 to HK$4.29.</p>
+  <div class="chart-head">
+    <p class="chart-title">Monthly posted Standard price, split into import cost, duty and the rest</p>
+    <div class="seg" role="group" aria-label="Price shown">
+      <button class="btn seg-b" aria-pressed="true" data-mode="posted">Posted price</button>
+      <button class="btn seg-b" aria-pressed="false" data-mode="net">After walk-in discount</button>
+    </div>
+  </div>
+  <figure class="chart">
+    <svg id="margin" viewBox="0 0 900 340" role="img" aria-labelledby="margin-t" tabindex="0"><title id="margin-t">Price decomposition by month. Use the left and right arrow keys to move the readout.</title></svg>
+    <div class="readout mono" id="margin-read" aria-live="polite"></div>
+    <figcaption id="margin-cap">Import cost: Census and Statistics Department, monthly unit value of unleaded petrol imports.</figcaption>
+  </figure>
+  <p>Walk-in discounts grew as the posted price rose. The average across the five brands went from HK$2.44 a litre in the first year of archived pages to HK$5.52 in the last. On the average price after that discount, the margin over import cost and duty still went from HK$6.74 to HK$13.11. Card and loyalty discounts go deeper and are not in the data.</p>
+</section>
+
+<section aria-labelledby="s4">
+  <h2 id="s4">Rockets and feathers</h2>
+  <p>When the world price of gasoline changes, how much of the change reaches the pump, and how fast? In Hong Kong 30% of a rise shows up in the posted price within the week, against 7% of a fall. Los Angeles has the same lean but smaller; Perth, once its weekly price cycle is accounted for, has no significant lean.</p>
+  <div class="chart-head">
+    <p class="chart-title">Share of a permanent cost change passed to the retail price</p>
+    <div class="seg" role="group" aria-label="Market" id="pt-seg"></div>
+  </div>
+  <figure class="chart">
+    <svg id="pt" viewBox="0 0 900 320" role="img" aria-labelledby="pt-t"><title id="pt-t">Pass-through of cost rises and falls over twelve weeks</title></svg>
+    <p class="pt-stat mono" id="pt-stat"></p>
+    <figcaption>Error-correction model on weekly data, four lags of cost rises and falls (Borenstein, Cameron and Gilbert 1997). Costs: Los Angeles RBOB spot for Los Angeles; US Gulf Coast spot in local currency for Hong Kong and Perth.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="s5">
+  <h2 id="s5">What a crowded, transparent market looks like</h2>
+  <p>Perth's retailers must tell the state's FuelWatch service their next day's price by 2pm and hold it for 24 hours, so every price is public, as in Hong Kong. The difference is the number of sellers. On a typical day the cheapest and dearest of Perth's 419 metro stations are 38 cents a litre apart, and the most common price is posted by only 23% of stations. Prices run a weekly cycle: the median is lowest on Tuesday (155.9 cents) and jumps on Wednesday (187.1 cents), the day prices are restored. That cycle is coordination of its own kind (Byrne and de Roos 2019), but it produces price wars every week, not one price that sits still.</p>
+  <figure class="chart">
+    <svg id="perth" viewBox="0 0 900 320" role="img" aria-labelledby="perth-t" tabindex="0"><title id="perth-t">Perth daily station price spread. Use the left and right arrow keys to move the readout.</title></svg>
+    <div class="readout mono" id="perth-read" aria-live="polite"></div>
+    <figcaption>Median (oxide) and the 10th to 90th percentile of stations (shaded), FuelWatch daily data. The window shows the last 120 days; drag the day picker at the top of the page to move it.</figcaption>
+  </figure>
+</section>
+
+<section aria-labelledby="s6">
+  <h2 id="s6">What this shows, and what it does not</h2>
+  <p>None of this is evidence of an agreement. Identical prices are what a few sellers with the same costs and fully public prices would produce on their own, and Hong Kong's Competition Commission said in 2017 that this kind of parallel pricing reveals very little by itself. US law asks for more than parallel conduct before inferring a conspiracy (<i>Bell Atlantic v. Twombly</i>, 2007), and Hong Kong's First Conduct Rule likewise targets agreements and concerted practices.</p>
+  <p>What the screens add is that the patterns come together and last: a stable leader and followers, increases that outnumber cuts more than three to one, faster pass-through of rises than falls, and a margin that roughly doubled while the cost of the product did not. The data that would separate cost from conduct are station operating costs and rents, the timing of each brand's price notices, and the full discount terms by date. The Consumer Council collects some of these; none are published as data.</p>
+  <p class="small">Limits: the open-data record starts in April 2020. Day-level timing depends on when the archive copied the file. The import price is a monthly average. The margin is gross of storage, delivery, station costs and rent.</p>
+</section>
+
+<footer class="site-footer">
+  <p><a href="overview/">Write-up</a><a href="paper/fuel-lockstep.pdf">Paper (PDF)</a><a href="https://github.com/lyhjeremy/fuel-lockstep">Code and data</a><a href="https://lyhjeremy.com">Jeremy Lee</a></p>
+  <p>Sources: Consumer Council (pump prices via data.gov.hk; walk-in discounts via Internet Archive captures of oil-price.consumer.org.hk), Census and Statistics Department table 915-91104, US Energy Information Administration, FuelWatch Western Australia, FRED.</p>
+</footer>
+</main>
+<noscript><p class="wrap small">The charts on this page need JavaScript. The same findings, with static figures, are in the <a href="overview/">write-up</a> and the <a href="paper/fuel-lockstep.pdf">paper</a>.</p></noscript>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+{
+  "hk": {
+    "standard": {
+      "days": 2373,
+      "share_days_all_equal": 0.8765,
+      "median_range_when_unequal": 0.2,
+      "episodes": 143,
+      "episodes_up": 110,
+      "episodes_down": 33,
+      "share_all_five_within_7d": 0.8951,
+      "share_all_five_same_day": 0.014,
+      "share_full_episodes_same_size": 0.8281,
+      "median_max_lag_days_full": 2.0,
+      "median_size_up": 0.2,
+      "median_size_down": -0.1,
+      "leaders_single": {
+        "Shell": 37,
+        "Esso": 17,
+        "Caltex": 12,
+        "Sinopec": 1
+      },
+      "by_year_all_equal": {
+        "2020": 0.8537,
+        "2021": 0.8301,
+        "2022": 0.8932,
+        "2023": 0.9589,
+        "2024": 0.9153,
+        "2025": 0.8822,
+        "2026": 0.7774
+      }
+    },
+    "premium": {
+      "days": 2373,
+      "share_days_all_equal": 0.6405,
+      "median_range_when_unequal": 0.41,
+      "episodes": 327,
+      "episodes_up": 198,
+      "episodes_down": 129,
+      "share_all_five_within_7d": 0.3547,
+      "share_all_five_same_day": 0.0061,
+      "share_full_episodes_same_size": 0.6121,
+      "median_max_lag_days_full": 2.0,
+      "median_size_up": 0.275,
+      "median_size_down": -1.19,
+      "leaders_single": {
+        "PetroChina": 202,
+        "Shell": 26,
+        "Esso": 20,
+        "Caltex": 13,
+        "Sinopec": 2
+      },
+      "by_year_all_equal": {
+        "2020": 0.8537,
+        "2021": 0.7781,
+        "2022": 0.7014,
+        "2023": 0.8329,
+        "2024": 0.0191,
+        "2025": 0.8027,
+        "2026": 0.5515
+      }
+    },
+    "diesel": {
+      "days": 2373,
+      "share_days_all_equal": 0.8074,
+      "median_range_when_unequal": 0.2,
+      "episodes": 190,
+      "episodes_up": 143,
+      "episodes_down": 47,
+      "share_all_five_within_7d": 0.8789,
+      "share_all_five_same_day": 0.0211,
+      "share_full_episodes_same_size": 0.7964,
+      "median_max_lag_days_full": 2.0,
+      "median_size_up": 0.2,
+      "median_size_down": -0.2,
+      "leaders_single": {
+        "Shell": 52,
+        "Esso": 29,
+        "Caltex": 19,
+        "Sinopec": 10
+      },
+      "by_year_all_equal": {
+        "2020": 0.8252,
+        "2021": 0.7781,
+        "2022": 0.7863,
+        "2023": 0.8932,
+        "2024": 0.8989,
+        "2025": 0.8384,
+        "2026": 0.6013
+      }
+    }
+  },
+  "hk_margin": {
+    "months": 77,
+    "start": "2020-04-01",
+    "end": "2026-08-01",
+    "mean_import": 4.83,
+    "mean_margin": 12.86,
+    "margin_first12": 8.76,
+    "margin_last12": 19.03,
+    "posted_first12": 17.55,
+    "posted_last12": 30.49,
+    "import_first12": 2.73,
+    "import_last12": 5.4
+  },
+  "hk_net_margin": {
+    "days": 119,
+    "first_year_days": 22,
+    "last_year_days": 25,
+    "first_year": {
+      "posted": 19.19,
+      "net_mean": 16.74,
+      "discount_mean": 2.44,
+      "import_hkd_per_l": 3.94,
+      "posted_margin": 9.19,
+      "net_margin": 6.74
+    },
+    "last_year": {
+      "posted": 29.62,
+      "net_mean": 24.09,
+      "discount_mean": 5.52,
+      "import_hkd_per_l": 4.92,
+      "posted_margin": 18.64,
+      "net_margin": 13.11
+    }
+  },
+  "passthrough": {
+    "Hong Kong": {
+      "n_weeks": 334,
+      "start": "2020-05-04",
+      "end": "2026-10-26",
+      "long_run_slope": 0.585,
+      "long_run_trend_per_year": 2.084,
+      "ect": -0.014,
+      "week0_rise": 0.298,
+      "week0_fall": 0.072,
+      "week4_rise": 0.666,
+      "week4_fall": 0.394,
+      "asym_weeks01_diff": 0.42,
+      "asym_weeks01_p": 0.0089
+    },
+    "Los Angeles": {
+      "n_weeks": 334,
+      "start": "2020-05-04",
+      "end": "2026-10-26",
+      "long_run_slope": 1.042,
+      "long_run_trend_per_year": 0.0,
+      "ect": -0.088,
+      "week0_rise": 0.528,
+      "week0_fall": 0.229,
+      "week4_rise": 0.86,
+      "week4_fall": 0.848,
+      "asym_weeks01_diff": 0.188,
+      "asym_weeks01_p": 0.0278
+    },
+    "Perth": {
+      "n_weeks": 347,
+      "start": "2020-01-13",
+      "end": "2026-10-05",
+      "long_run_slope": 0.939,
+      "long_run_trend_per_year": 0.0,
+      "ect": -0.066,
+      "week0_rise": 0.351,
+      "week0_fall": 0.031,
+      "week4_rise": 0.952,
+      "week4_fall": 1.04,
+      "asym_weeks01_diff": 0.575,
+      "asym_weeks01_p": 0.2795
+    }
+  },
+  "variance_screen": {
+    "Hong Kong": {
+      "sd_weekly_change_retail_over_cost": 0.579,
+      "share_weeks_retail_unchanged": 0.6578,
+      "corr_level_retail_cost": 0.548
+    },
+    "Los Angeles": {
+      "sd_weekly_change_retail_over_cost": 0.534,
+      "share_weeks_retail_unchanged": 0.0088,
+      "corr_level_retail_cost": 0.958
+    },
+    "Perth": {
+      "sd_weekly_change_retail_over_cost": 1.546,
+      "share_weeks_retail_unchanged": 0.1577,
+      "corr_level_retail_cost": 0.858
+    }
+  },
+  "hk_by_year_corr_cost_sd_vs_all_equal": -0.358,
+  "perth": {
+    "days": 2465,
+    "start": "2020-01-01",
+    "end": "2026-09-30",
+    "mean_stations": 419.1,
+    "median_daily_range_cents": 38.3,
+    "median_daily_iqr_cents": 6.0,
+    "median_modal_share": 0.2254,
+    "dow_median_cents": {
+      "Friday": 169.87,
+      "Monday": 159.4,
+      "Saturday": 164.21,
+      "Sunday": 162.02,
+      "Thursday": 178.41,
+      "Tuesday": 155.89,
+      "Wednesday": 187.12
+    },
+    "brands": [
+      "BP",
+      "Caltex",
+      "Ampol",
+      "7-Eleven",
+      "Coles Express",
+      "Puma",
+      "Vibe",
+      "United"
+    ],
+    "share_days_all_brand_medians_equal": 0.0,
+    "median_brand_range_cents": 10.4
+  }
+}

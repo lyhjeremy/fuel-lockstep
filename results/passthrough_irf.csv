@@ -1,0 +1,40 @@
+market,week,rise,fall
+Hong Kong,0,0.2977,0.0724
+Hong Kong,1,0.5586,0.113
+Hong Kong,2,0.5097,0.1677
+Hong Kong,3,0.6454,0.2868
+Hong Kong,4,0.6663,0.3936
+Hong Kong,5,0.6678,0.4097
+Hong Kong,6,0.6668,0.4143
+Hong Kong,7,0.6655,0.4173
+Hong Kong,8,0.6642,0.42
+Hong Kong,9,0.6629,0.4227
+Hong Kong,10,0.6616,0.4254
+Hong Kong,11,0.6604,0.428
+Hong Kong,12,0.6592,0.4306
+Los Angeles,0,0.5285,0.2294
+Los Angeles,1,0.6713,0.42
+Los Angeles,2,0.7449,0.5861
+Los Angeles,3,0.8376,0.7291
+Los Angeles,4,0.8596,0.848
+Los Angeles,5,0.8822,0.9007
+Los Angeles,6,0.903,0.9288
+Los Angeles,7,0.9213,0.9472
+Los Angeles,8,0.9374,0.961
+Los Angeles,9,0.9514,0.9722
+Los Angeles,10,0.9635,0.9816
+Los Angeles,11,0.9739,0.9897
+Los Angeles,12,0.983,0.9967
+Perth,0,0.3507,0.0311
+Perth,1,0.7712,0.3619
+Perth,2,1.3916,0.6868
+Perth,3,1.0664,0.8911
+Perth,4,0.9518,1.04
+Perth,5,1.0028,0.966
+Perth,6,0.9756,0.9977
+Perth,7,0.9855,0.9796
+Perth,8,0.978,0.9851
+Perth,9,0.9788,0.9796
+Perth,10,0.9758,0.9794
+Perth,11,0.9748,0.9768
+Perth,12,0.9729,0.9755
